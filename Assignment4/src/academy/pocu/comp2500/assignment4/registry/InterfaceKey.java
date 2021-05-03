@@ -1,0 +1,12 @@
+package academy.pocu.comp2500.assignment4.registry;
+
+public enum InterfaceKey {
+    DRAW_PIXEL_COMMAND,
+    INCREASE_PIXEL_COMMAND,
+    DECREASE_PIXEL_COMMAND,
+    TO_UPPER_CASE_COMMAND,
+    TO_LOWER_CASE_COMMAND,
+    FILL_VERTICAL_LINE_COMMAND,
+    FILL_HORIZONTAL_LINE_COMMAND,
+    CLEAR_COMMAND
+}
