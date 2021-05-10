@@ -1,11 +1,10 @@
 package academy.pocu.comp2500.lab2;
 
-import javax.swing.*;
-import java.util.concurrent.Callable;
 
 public class ComplexNumber {
     public double real;
     public double imaginary;
+
     public ComplexNumber(){
         this.real = 0.0;
         this.imaginary = 0.0;
