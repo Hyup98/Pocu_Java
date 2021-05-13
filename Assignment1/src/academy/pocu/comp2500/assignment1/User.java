@@ -6,8 +6,6 @@ public class User {
     this.userId = userId;
     
   }
- Blog BlogCreator(String userId) {
-   
- }
+
 
 }
