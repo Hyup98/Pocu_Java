@@ -16,8 +16,7 @@ public class Program {
         sublistItem1.addSublistItem(subSublistItem2);
         item1.addSublistItem(sublistItem1);
 
-        String s = item1.toString();
-        System.out.print(s);
+        System.out.print(item1.toString());
 // s:
         /*
          * This is item1
