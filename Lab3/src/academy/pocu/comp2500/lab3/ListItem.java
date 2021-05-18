@@ -56,7 +56,7 @@ public class ListItem {
 
     public String toString() {
         StringBuilder sb = new StringBuilder("");
-        int depth = 1;
+        int depth = 0;
         ListItem check = this.ancestor;
         while (true) {
             if (check == null) {
@@ -68,8 +68,6 @@ public class ListItem {
             check = check.ancestor;
             depth++;
         }
-
-
         for (int i = 0; i < depth; i++) {
             sb.append("    ");
         }
