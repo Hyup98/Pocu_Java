@@ -50,6 +50,7 @@ public class ListItem {
     }
 
     public String toString() {
+        mDepth = 0;
         StringBuilder sb_1 = new StringBuilder("");
         sb_1.append(mBulletStyle + " " + mText + System.lineSeparator());
 
