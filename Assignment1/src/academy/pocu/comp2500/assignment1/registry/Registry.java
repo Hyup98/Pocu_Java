@@ -1,4 +1,4 @@
-package academy.pocu.comp2500.assignment1.registry;
+package src.academy.pocu.comp2500.assignment1.registry;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
