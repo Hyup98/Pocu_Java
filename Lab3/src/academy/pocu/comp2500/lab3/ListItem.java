@@ -3,76 +3,79 @@ package academy.pocu.comp2500.lab3;
 import java.util.ArrayList;
 
 public class ListItem {
-    private String Text;
-    private int Depth;
-    private char BulletStyle;
-    private ListItem Ancestor;
-    private ArrayList<ListItem> mSubListItem = new ArrayList<>();
+    private String text;
+    private int depth;
+    private char bulletStyle;
+    private ListItem ancestor;
+    private ArrayList<ListItem> subListItem = new ArrayList<>();
 
     public ListItem(String text) {
-        Text = text;
-        BulletStyle = '*';
-        Depth = 0;
-        Ancestor = null;
+        this.text = text;
+        bulletStyle = '*';
+        depth = 0;
+        ancestor = null;
     }
 
     public ListItem(String text, char bulletStyle) {
-        Text = text;
-        BulletStyle = bulletStyle;
-        Depth = 0;
-        Ancestor = null;
+        this.text = text;
+        this.bulletStyle = bulletStyle;
+        depth = 0;
+        ancestor = null;
     }
 
     public String getText() {
-        return Text;
+        return text;
     }
 
     public void setText(String text) {
-        Text = text;
+        this.text = text;
     }
 
     public char getBulletStyle() {
-        return BulletStyle;
+        return bulletStyle;
     }
 
     public void setBulletStyle(char a) {
-        BulletStyle = a;
+        bulletStyle = a;
     }
 
     public void removeSublistItem(int index) {
-        mSubListItem.remove(index);
+        subListItem.remove(index);
     }
 
     public void addSublistItem(ListItem subItem) {
-        mSubListItem.add(subItem);
-        subItem.Ancestor = this;
+        subListItem.add(subItem);
+        subItem.ancestor = this;
 
     }
 
     public ListItem getSublistItem(int index) {
-        return mSubListItem.get(index);
+        return subListItem.get(index);
     }
 
 
     public String toString() {
         StringBuilder sb = new StringBuilder("");
-        int Depth = 1;
-        ListItem check = this.Ancestor;
-        while(true){
-            if(check == null){
+        int depth = 1;
+        ListItem check = this.ancestor;
+        while (true) {
+            if (check == null) {
                 break;
             }
-            check = check.Ancestor;
-            Depth++;
+            if (check.text.equals((""))) {
+                break;
+            }
+            check = check.ancestor;
+            depth++;
         }
 
 
-        for (int i = 0; i < Depth; i++) {
+        for (int i = 0; i < depth; i++) {
             sb.append("    ");
         }
-        sb.append(BulletStyle + " " + Text + System.lineSeparator());
-        if (mSubListItem.size() != 0) {
-            for (ListItem list : mSubListItem) {
+        sb.append(bulletStyle + " " + text + System.lineSeparator());
+        if (subListItem.size() != 0) {
+            for (ListItem list : subListItem) {
                 sb.append(list.toString());
             }
         }
