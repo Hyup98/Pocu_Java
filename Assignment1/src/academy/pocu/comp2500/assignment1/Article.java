@@ -195,4 +195,9 @@ public class Article {
         this.tag = tag;
     }
 
+    public void showComment(){
+        commentSorting();
+        System.out.print(getComment());
+    }
+
 }

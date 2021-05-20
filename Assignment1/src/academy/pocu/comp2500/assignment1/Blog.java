@@ -256,12 +256,15 @@ public class Blog {
         articles.get(i).addComment(comment, writeId);
     }
 
+    /*
     public void showComment(int i) {
         articles.get(i).commentSorting();
         System.out.print(articles.get(i).getContent() + "\n");
         String answer = articles.get(i).getComment();
         System.out.print(answer);
     }
+
+     */
 
     public void showReactionArticle(int i) {
         articles.get(i).showReaction();
