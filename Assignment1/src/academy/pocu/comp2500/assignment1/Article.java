@@ -130,7 +130,7 @@ public class Article {
         return answer;
     }
 
-    public void addSubComment(String sub, int index, String writerId) {
+    public void addSubComment(String sub, int i, String writerId) {
         if (!sub.equals("")) {
             Comment tem = new Comment(sub, writerId);
             CommentToArticle.add(tem);
@@ -138,8 +138,8 @@ public class Article {
         }
     }
 
-    public Comment getComment(int index) {
-        return CommentToArticle.get(index);
+    public Comment getComment(int i) {
+        return CommentToArticle.get(i);
     }
 
     public String getAuthor() {
@@ -158,8 +158,8 @@ public class Article {
         this.author = author;
     }
 
-    public void changeComment(String writeId, int index, String comment) {
-        CommentToArticle.get(index).setComment(comment, writeId);
+    public void changeComment(String writeId, int i, String comment) {
+        CommentToArticle.get(i).setComment(comment, writeId);
     }
 
     public String getContent() {

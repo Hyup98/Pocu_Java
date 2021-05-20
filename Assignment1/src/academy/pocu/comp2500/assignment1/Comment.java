@@ -82,8 +82,8 @@ public class Comment {
 
     }
 
-    public Comment getSubComment(int index) {
-        return CommentToComment.get(index);
+    public Comment getSubComment(int i) {
+        return CommentToComment.get(i);
     }
 
     public void setComment(String comment, String writerId) {
@@ -99,9 +99,9 @@ public class Comment {
     }
 
 
-    public void changeSubcomment(int index, String writerId, String comment) {
-        if (CommentToComment.get(index).getWriterId().equals(writerId)) {
-            CommentToComment.get(index).setComment(comment, writerId);
+    public void changeSubcomment(int i, String writerId, String comment) {
+        if (CommentToComment.get(i).getWriterId().equals(writerId)) {
+            CommentToComment.get(i).setComment(comment, writerId);
         }
     }
 
