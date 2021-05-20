@@ -61,13 +61,13 @@ public class Blog {
         }
     }
 
-    public void postTitleUpdater(String blogId, int index, String title) {
+    public void postTitleUpdater(String blogId, int i, String title) {
 
         if (blogId.equals(this.blogId)) {
 
             if (!title.equals("")) {
-                articles.get(index).setTitle(title);
-                articles.get(index).setModifiedDateTime();
+                articles.get(i).setTitle(title);
+                articles.get(i).setModifiedDateTime();
             } else {
                 System.out.print("바꾸고 싶은 문자열이 비어있습니다.");
             }
@@ -76,11 +76,11 @@ public class Blog {
         }
     }
 
-    public void PostBodyUpdater(String blogId, String newBody, int index) {
+    public void PostBodyUpdater(String blogId, String newBody, int i) {
         if (blogId.equals(this.blogId)) {
             if (!newBody.equals("")) {
-                articles.get(index).setModifiedDateTime();
-                articles.get(index).setContent(newBody);
+                articles.get(i).setModifiedDateTime();
+                articles.get(i).setContent(newBody);
             } else {
                 System.out.print("바꿀 내용이 비어있습니다.");
             }
@@ -89,10 +89,10 @@ public class Blog {
         }
     }
 
-    public void PostTagAdder(String blogId, String tag, int index) {
+    public void PostTagAdder(String blogId, String tag, int i) {
         if (blogId.equals(this.blogId)) {
             if (!tag.equals("")) {
-                articles.get(index).tagging(tag);
+                articles.get(i).tagging(tag);
             } else {
                 System.out.print("널문자 입니다.");
             }
@@ -256,59 +256,59 @@ public class Blog {
         articles.get(i).addComment(comment, writeId);
     }
 
-    public void showComment(int index) {
-        articles.get(index).commentSorting();
-        System.out.print(articles.get(index).getContent() + "\n");
-        String answer = articles.get(index).getComment();
+    public void showComment(int i) {
+        articles.get(i).commentSorting();
+        System.out.print(articles.get(i).getContent() + "\n");
+        String answer = articles.get(i).getComment();
         System.out.print(answer);
     }
 
-    public void showReactionArticle(int index) {
-        articles.get(index).showReaction();
+    public void showReactionArticle(int i) {
+        articles.get(i).showReaction();
     }
 
-    public Article getArticle(int index) {
-        return articles.get(index);
+    public Article getArticle(int i) {
+        return articles.get(i);
     }
 
-    public void addReactionToArticle(int type, int index) {
+    public void addReactionToArticle(int type, int i) {
         switch (type) {
             case 1:
-                articles.get(index).addGreat();
+                articles.get(i).addGreat();
                 break;
             case 2:
-                articles.get(index).addSad();
+                articles.get(i).addSad();
                 break;
             case 3:
-                articles.get(index).addAngry();
+                articles.get(i).addAngry();
                 break;
             case 4:
-                articles.get(index).addFun();
+                articles.get(i).addFun();
                 break;
             case 5:
-                articles.get(index).addLove();
+                articles.get(i).addLove();
                 break;
             default:
                 break;
         }
     }
 
-    public void subReactionToArticle(int type, int index) {
+    public void subReactionToArticle(int type, int i) {
         switch (type) {
             case 1:
-                articles.get(index).subGreat();
+                articles.get(i).subGreat();
                 break;
             case 2:
-                articles.get(index).subSad();
+                articles.get(i).subSad();
                 break;
             case 3:
-                articles.get(index).subAngry();
+                articles.get(i).subAngry();
                 break;
             case 4:
-                articles.get(index).subFun();
+                articles.get(i).subFun();
                 break;
             case 5:
-                articles.get(index).subLove();
+                articles.get(i).subLove();
                 break;
             default:
                 break;
