@@ -1,7 +1,7 @@
 package academy.pocu.comp2500.assignment1.app;
 
-import src.academy.pocu.comp2500.assignment1.App;
-import src.academy.pocu.comp2500.assignment1.registry.Registry;
+import academy.pocu.comp2500.assignment1.App;
+import academy.pocu.comp2500.assignment1.registry.Registry;
 
 public class Program {
 
