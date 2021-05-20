@@ -1,4 +1,4 @@
-package src.academy.pocu.comp2500.assignment1.registry;
+package academy.pocu.comp2500.assignment1.registry;
 
 /**
  * DO NOT MODIFY. YOU DON'T HAVE TO!

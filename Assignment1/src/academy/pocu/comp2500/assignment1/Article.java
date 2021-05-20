@@ -1,4 +1,4 @@
-package src.academy.pocu.comp2500.assignment1;
+package academy.pocu.comp2500.assignment1;
 import javax.crypto.CipherInputStream;
 import java.time.LocalDateTime;
 import  java.util.ArrayList;
