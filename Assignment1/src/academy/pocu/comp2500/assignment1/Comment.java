@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Comment {
-    String writerId;
     private int upVoteCount;
     private int downVoteCount;
     private String comment;
@@ -24,8 +23,7 @@ public class Comment {
         }
     }
 
-    public Comment(String comment, String writerId) {
-        this.writerId = writerId;
+    public Comment(String comment) {
         this.comment = comment;
         upVoteCount = 0;
         downVoteCount = 0;
@@ -62,9 +60,9 @@ public class Comment {
         this.ancestor = ancestor;
     }
 
-    public void addSubComment(String subComment, String writerId) {
+    public void addSubComment(String subComment) {
         if (!subComment.equals("")) {
-            Comment tem = new Comment(subComment, writerId);
+            Comment tem = new Comment(subComment);
             commentToComment.add(tem);
             tem.setAncestor(this);
         }
@@ -75,23 +73,14 @@ public class Comment {
         return commentToComment.get(i);
     }
 
-    public void setComment(String comment, String writerId) {
-        if (writerId.equals(this.writerId)) {
-            if (!comment.equals("")) {
-                this.comment = comment;
-            }
+    public void setComment(String comment) {
+        if (!comment.equals("")) {
+            this.comment = comment;
         }
     }
 
-    public String getWriterId() {
-        return writerId;
-    }
-
-
-    public void changeSubcomment(int i, String writerId, String comment) {
-        if (commentToComment.get(i).getWriterId().equals(writerId)) {
-            commentToComment.get(i).setComment(comment, writerId);
-        }
+    public void changeSubcomment(int i, String comment) {
+        commentToComment.get(i).setComment(comment);
     }
 
     public void showSubComment() {

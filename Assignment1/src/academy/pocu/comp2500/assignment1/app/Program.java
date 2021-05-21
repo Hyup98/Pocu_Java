@@ -19,15 +19,15 @@ public class Program {
         tem.postArticle(a_2, "123");
         tem.postArticle(a_3, "123");
 
-        tem.commentAdder(0, "댓글입니다1", "123");
-        tem.commentAdder(0, "댓글입니다2", "123");
-        tem.commentAdder(0, "댓글입니다3", "123");
+        tem.commentAdder(0, "댓글입니다1");
+        tem.commentAdder(0, "댓글입니다2");
+        tem.commentAdder(0, "댓글입니다3");
 
-        tem.commentAdder(1, "댓글입니다2", "123");
-        tem.commentAdder(1, "댓글입니다3", "123");
+        tem.commentAdder(1, "댓글입니다2");
+        tem.commentAdder(1, "댓글입니다3");
 
-        tem.getArticle(0).getComment(0).addSubComment("댓글 1의 댓글입니다.", "123");
-        tem.getArticle(0).getComment(0).addSubComment("댓글 1의 댓글입니다.", "123");
+        tem.getArticle(0).getComment(0).addSubComment("댓글 1의 댓글입니다.");
+        tem.getArticle(0).getComment(0).addSubComment("댓글 1의 댓글입니다.");
 
         tem.showArticleAndComment();
         tem.getArticle(0).getComment(0).showSubComment();

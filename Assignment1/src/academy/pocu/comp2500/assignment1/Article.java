@@ -49,8 +49,8 @@ public class Article {
         return commentToArticle.size();
     }
 
-    public void addComment(String comment, String writeId) {
-        Comment tem = new Comment(comment, writeId);
+    public void addComment(String comment) {
+        Comment tem = new Comment(comment);
         commentToArticle.add(tem);
     }
 
@@ -138,9 +138,9 @@ public class Article {
         return answer;
     }
 
-    public void addSubComment(String sub, int i, String writerId) {
+    public void addSubComment(String sub, int i) {
         if (!sub.equals("")) {
-            Comment tem = new Comment(sub, writerId);
+            Comment tem = new Comment(sub);
             commentToArticle.add(tem);
             tem.setAncestor(null);
         }
@@ -162,8 +162,8 @@ public class Article {
         this.author = author;
     }
 
-    public void changeComment(String writeId, int i, String comment) {
-        commentToArticle.get(i).setComment(comment, writeId);
+    public void changeComment( int i, String comment) {
+        commentToArticle.get(i).setComment(comment);
     }
 
     public String getContent() {

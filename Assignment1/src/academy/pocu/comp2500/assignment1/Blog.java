@@ -229,8 +229,8 @@ public class Blog {
 
     }
 
-    public void commentAdder(int i, String comment, String writeId) {
-        articles.get(i).addComment(comment, writeId);
+    public void commentAdder(int i, String comment) {
+        articles.get(i).addComment(comment);
     }
 
 
