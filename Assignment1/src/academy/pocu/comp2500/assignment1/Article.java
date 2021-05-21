@@ -125,6 +125,19 @@ public class Article {
         return commentToArticle.get(index);
     }
 
+    public void titleUpdater(String title) {
+        this.title = title;
+    }
+
+    public void bodyUpdater(String Body) {
+        this.content = Body;
+    }
+
+    public void tagAdder(String tag) {
+        this.tag = tag;
+    }
+
+
     public String getArticleComment() {
         StringBuilder sb = new StringBuilder("");
         if (commentToArticle.size() != 0) {
@@ -158,10 +171,6 @@ public class Article {
 
     public void setAuthor(String author) {
         this.author = author;
-    }
-
-    public void changeComment(int i, String comment) {
-        commentToArticle.get(i).setComment(comment);
     }
 
     public String getContent() {

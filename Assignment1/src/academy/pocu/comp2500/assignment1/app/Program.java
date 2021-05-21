@@ -28,7 +28,11 @@ public class Program {
         tem.getArticle(0).getComment(0).addSubComment("댓글 1의 댓글입니다.");
         tem.getArticle(0).getComment(0).addSubComment("댓글 1의 댓글입니다.");
 
-        tem.showArticleAndComment();
+        //tem.showArticleAndComment();
         tem.getArticle(0).getComment(0).showSubComment();
+
+        tem.getArticle(0).titleUpdater("새로운 제목");
+        tem.showArticle();
+
     }
 }

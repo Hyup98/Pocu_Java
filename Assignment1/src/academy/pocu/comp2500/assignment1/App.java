@@ -13,9 +13,9 @@ public class App {
         registry.registerPostOrderSetter("Blog", "postLoad");// 블로그 글의 정렬 방법을 설정하는 메서드를 등록한다.
         registry.registerPostListGetter("Blog", "postLoad");// 블로그 글 목록을 가져오는 메서드를 등록한다.
         registry.registerPostAdder("Blog", "postArticle");// 블로그에 글을 추가하는 메서드를 등록한다.
-        registry.registerPostTitleUpdater("Blog", "postTitleUpdater");// 발행된 블로그 글의 제목을 바꾸는 메서드를 등록한다.
-        registry.registerPostBodyUpdater("Blog", "PostBodyUpdater");//발행된 블로그 글의 본문을 바꾸는 메서드를 등록한다.
-        registry.registerPostTagAdder("Blog", "PostTagAdder");//블로그 글에 태그를 추가하는 메서드를 등록한다.
+        registry.registerPostTitleUpdater("Blog", "titleUpdater");// 발행된 블로그 글의 제목을 바꾸는 메서드를 등록한다.
+        registry.registerPostBodyUpdater("Blog", "bodyUpdater");//발행된 블로그 글의 본문을 바꾸는 메서드를 등록한다.
+        registry.registerPostTagAdder("Blog", "tagAdder");//블로그 글에 태그를 추가하는 메서드를 등록한다.
         registry.registerCommentAdder("Blog", "commentAdder");// 블로그 글에 댓글을 추가하는 메서드를 등록한다.
         registry.registerSubcommentAdder("Comment", "addSubComment");// 댓글에 하위 댓글을 추가하는 메서드를 등록한다.
         registry.registerCommentUpdater("Article", "changeComment");// 댓글의 내용을 바꾸는 메서드를 등록한다.

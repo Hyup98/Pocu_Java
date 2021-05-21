@@ -79,15 +79,15 @@ public class Comment {
         }
     }
 
-    public void changeSubcomment(int i, String comment) {
-        commentToComment.get(i).setComment(comment);
-    }
-
     public void showSubComment() {
         System.out.print("* " + comment + "\n");
         for (int i = 0; i < commentToComment.size(); i++) {
             System.out.print("   * " + commentToComment.get(i).getComment() + "\n");
         }
+    }
+
+    public void changeComment(String comment) {
+        this.comment = comment;
     }
 
 

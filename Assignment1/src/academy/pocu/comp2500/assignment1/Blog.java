@@ -26,7 +26,8 @@ public class Blog {
         }
     }
 
-    public void postTitleUpdater(int i, String title) {
+    /*
+    public void postTitleUpdater(Article wantChange,String ) {
         if (!title.equals("")) {
             articles.get(i).setTitle(title);
             articles.get(i).setModifiedDateTime();
@@ -51,6 +52,8 @@ public class Blog {
             System.out.print("널문자 입니다.");
         }
     }
+
+     */
 
     public void filteringByAuthor(String author) {
         int tem = 1;
@@ -210,13 +213,13 @@ public class Blog {
 
     public void showArticle() {
         for (Article tem : articles) {
-            System.out.print("* " + tem.getContent() + "\n");
+            System.out.print("* " + tem.getTitle() + "\n");
         }
     }
 
     public void showArticleAndComment() {
         for (int i = 0; i < articles.size(); i++) {
-            System.out.print("* " + articles.get(i).getContent() + "\n");
+            System.out.print("* " + articles.get(i).getTitle() + "\n");
             articles.get(i).showComment();
         }
     }
