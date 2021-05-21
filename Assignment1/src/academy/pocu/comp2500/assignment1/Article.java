@@ -18,7 +18,7 @@ public class Article {
     private int Love;
     private LocalDateTime createdDateTime;
     private LocalDateTime modifiedDateTime;
-    private ArrayList<Comment> CommentToArticle = new ArrayList<Comment>();
+    private ArrayList<Comment> commentToArticle = new ArrayList<Comment>();
 
     public void tagging(String tag) {
         this.tag = tag;
@@ -46,16 +46,16 @@ public class Article {
     }
 
     public int getCommentAmmount(){
-        return CommentToArticle.size();
+        return commentToArticle.size();
     }
 
     public void addComment(String comment, String writeId) {
         Comment tem = new Comment(comment, writeId);
-        CommentToArticle.add(tem);
+        commentToArticle.add(tem);
     }
 
     public void addComment(Comment com) {
-        CommentToArticle.add(com);
+        commentToArticle.add(com);
     }
 
     public void addGreat() {
@@ -109,29 +109,29 @@ public class Article {
     }
 
     public void commentSorting() {
-        for (int i = 0; i < CommentToArticle.size() - 1; i++) {
-            for (int j = i + 1; j < CommentToArticle.size(); j++) {
-                if (CommentToArticle.get(i).voteResult() < CommentToArticle.get(j).voteResult()) {
-                    Collections.swap(CommentToArticle, i, j);
+        for (int i = 0; i < commentToArticle.size() - 1; i++) {
+            for (int j = i + 1; j < commentToArticle.size(); j++) {
+                if (commentToArticle.get(i).voteResult() < commentToArticle.get(j).voteResult()) {
+                    Collections.swap(commentToArticle, i, j);
                 }
             }
         }
 
-        for (int i = 0; i < CommentToArticle.size(); i++) {
-            CommentToArticle.get(i).CommentSorting();
+        for (int i = 0; i < commentToArticle.size(); i++) {
+            commentToArticle.get(i).CommentSorting();
         }
 
     }
 
     public Comment getComment(int index){
-        return CommentToArticle.get(index);
+        return commentToArticle.get(index);
     }
 
     public String getArticleComment() {
         StringBuilder sb = new StringBuilder("");
-        if (CommentToArticle.size() != 0) {
-            for(int  i = 0; i<CommentToArticle.size();i++){
-                sb.append("   * "+CommentToArticle.get(i).getComment()+"\n");
+        if (commentToArticle.size() != 0) {
+            for(int  i = 0; i<commentToArticle.size();i++){
+                sb.append("   * "+commentToArticle.get(i).getComment()+"\n");
             }
         }
         String answer = sb.toString();
@@ -141,7 +141,7 @@ public class Article {
     public void addSubComment(String sub, int i, String writerId) {
         if (!sub.equals("")) {
             Comment tem = new Comment(sub, writerId);
-            CommentToArticle.add(tem);
+            commentToArticle.add(tem);
             tem.setAncestor(null);
         }
     }
@@ -163,7 +163,7 @@ public class Article {
     }
 
     public void changeComment(String writeId, int i, String comment) {
-        CommentToArticle.get(i).setComment(comment, writeId);
+        commentToArticle.get(i).setComment(comment, writeId);
     }
 
     public String getContent() {
