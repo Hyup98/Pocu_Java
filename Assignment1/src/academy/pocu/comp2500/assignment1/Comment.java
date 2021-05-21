@@ -43,13 +43,11 @@ public class Comment {
 
     public String getSubComment() {
         StringBuilder sb = new StringBuilder("");
-
         for (Comment tem : commentToComment) {
             sb.append(tem.getComment() + "\n");
         }
         String answer = sb.toString();
         return answer;
-
     }
 
     public String getComment() {

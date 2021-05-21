@@ -2,6 +2,7 @@ package academy.pocu.comp2500.assignment1.app;
 
 import academy.pocu.comp2500.assignment1.Article;
 import academy.pocu.comp2500.assignment1.Blog;
+import academy.pocu.comp2500.assignment1.*;
 
 public class Program {
     public static void main(String[] args) {
@@ -17,22 +18,26 @@ public class Program {
         tem.postArticle(a_1);
         tem.postArticle(a_2);
         tem.postArticle(a_3);
+        Comment Ctem_1 = new Comment("1번 댓글");
+        Comment Ctem_2 = new Comment("2번 댓글");
+        Comment Ctem_3 = new Comment("3번 댓글");
+        Comment Ctem_4 = new Comment("4번 댓글");
+        Comment Ctem_5 = new Comment("5번 댓글");
 
-        tem.commentAdder(0, "댓글입니다1");
-        tem.commentAdder(0, "댓글입니다2");
-        tem.commentAdder(0, "댓글입니다3");
-
-        tem.commentAdder(1, "댓글입니다2");
-        tem.commentAdder(1, "댓글입니다3");
+        tem.getArticle(0).addComment(Ctem_1);
+        tem.getArticle(1).addComment(Ctem_2);
+        tem.getArticle(1).addComment(Ctem_3);
+        tem.getArticle(1).addComment(Ctem_4);
+        tem.getArticle(2).addComment(Ctem_5);
 
         tem.getArticle(0).getComment(0).addSubComment("댓글 1의 댓글입니다.");
         tem.getArticle(0).getComment(0).addSubComment("댓글 1의 댓글입니다.");
 
-        //tem.showArticleAndComment();
-        tem.getArticle(0).getComment(0).showSubComment();
+        tem.showArticleAndComment();
+        //tem.getArticle(0).getComment(0).showSubComment();
 
-        tem.getArticle(0).titleUpdater("새로운 제목");
-        tem.showArticle();
+        //tem.getArticle(0).titleUpdater("새로운 제목");
+        //tem.showArticle();
 
     }
 }

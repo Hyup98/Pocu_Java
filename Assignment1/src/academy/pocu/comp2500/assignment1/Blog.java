@@ -161,19 +161,20 @@ public class Blog {
 
     }
 
-    public void postLoad() {
+    public void setSrotingType() {
+
         Scanner sc = new Scanner(System.in);
 
         //시간 순으로 불러오기
         //지금은 사전순으로 불러온다
         System.out.print("글 정렬 방법을 설정해 주세요\n");
         System.out.print("1.작성 일시 내림차순\n" +
-                "2.작성 일시 오름차순\n" +
-                "3.수정 일시 내림차순\n" +
-                "4.수정 일시 오름차순\n" +
-                "5.제목(사전 순서) 오름차순\n" +
-                "6.태크로 필터링 하기\n" +
-                "7.글 작성자로 필터링하기\n");
+                         "2.작성 일시 오름차순\n" +
+                         "3.수정 일시 내림차순\n" +
+                         "4.수정 일시 오름차순\n" +
+                         "5.제목(사전 순서) 오름차순\n" +
+                         "6.태크로 필터링 하기\n" +
+                         "7.글 작성자로 필터링하기\n");
 
         int type = sc.nextInt();
         switch (type) {
@@ -203,13 +204,7 @@ public class Blog {
                 filteringByAuthor(temAuthor);
                 break;
         }
-
     }
-
-    public void commentAdder(int i, String comment) {
-        articles.get(i).addComment(comment);
-    }
-
 
     public void showArticle() {
         for (Article tem : articles) {
@@ -228,49 +223,8 @@ public class Blog {
         return articles.get(i);
     }
 
-    public void addReactionToArticle(int type, int i) {
-        switch (type) {
-            case 1:
-                articles.get(i).addGreat();
-                break;
-            case 2:
-                articles.get(i).addSad();
-                break;
-            case 3:
-                articles.get(i).addAngry();
-                break;
-            case 4:
-                articles.get(i).addFun();
-                break;
-            case 5:
-                articles.get(i).addLove();
-                break;
-            default:
-                break;
-        }
-    }
 
-    public void subReactionToArticle(int type, int i) {
-        switch (type) {
-            case 1:
-                articles.get(i).subGreat();
-                break;
-            case 2:
-                articles.get(i).subSad();
-                break;
-            case 3:
-                articles.get(i).subAngry();
-                break;
-            case 4:
-                articles.get(i).subFun();
-                break;
-            case 5:
-                articles.get(i).subLove();
-                break;
-            default:
-                break;
-        }
-    }
+
 }
 
 

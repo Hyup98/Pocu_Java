@@ -40,16 +40,10 @@ public class Article {
                 "Angry - " + Angry + "\n" +
                 "Fun - " + Fun + "\n" +
                 "Love - " + Love + "\n");
-
     }
 
     public int getCommentAmmount() {
         return commentToArticle.size();
-    }
-
-    public void addComment(String comment) {
-        Comment tem = new Comment(comment);
-        commentToArticle.add(tem);
     }
 
     public void addComment(Comment com) {
@@ -137,6 +131,50 @@ public class Article {
         this.tag = tag;
     }
 
+    public void addReaction(int type){
+        switch (type) {
+            case 1:
+                addGreat();
+                break;
+            case 2:
+                addSad();
+                break;
+            case 3:
+                addAngry();
+                break;
+            case 4:
+                addFun();
+                break;
+            case 5:
+                addLove();
+                break;
+            default:
+                break;
+        }
+
+    }
+
+    public void subReactionToArticle(int type) {
+        switch (type) {
+            case 1:
+                subGreat();
+                break;
+            case 2:
+                subSad();
+                break;
+            case 3:
+                subAngry();
+                break;
+            case 4:
+                subFun();
+                break;
+            case 5:
+                subLove();
+                break;
+            default:
+                break;
+        }
+    }
 
     public String getArticleComment() {
         StringBuilder sb = new StringBuilder("");
