@@ -57,7 +57,7 @@ public class Comment {
 
     }
 
-    public Comment getSubComment(int i) {
+    public Comment getComment(int i) {
         return commentToComment.get(i);
     }
 
