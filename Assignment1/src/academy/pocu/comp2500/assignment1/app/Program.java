@@ -2,7 +2,7 @@ package academy.pocu.comp2500.assignment1.app;
 
 import academy.pocu.comp2500.assignment1.Article;
 import academy.pocu.comp2500.assignment1.Blog;
-import academy.pocu.comp2500.assignment1.*;
+import academy.pocu.comp2500.assignment1.Comment;
 
 public class Program {
     public static void main(String[] args) {
@@ -29,9 +29,6 @@ public class Program {
         tem.getArticle(1).addComment(Ctem_3);
         tem.getArticle(1).addComment(Ctem_4);
         tem.getArticle(2).addComment(Ctem_5);
-
-        tem.getArticle(0).getComment(0).addSubComment("댓글 1의 댓글입니다.");
-        tem.getArticle(0).getComment(0).addSubComment("댓글 1의 댓글입니다.");
 
         tem.showArticleAndComment();
         //tem.getArticle(0).getComment(0).showSubComment();

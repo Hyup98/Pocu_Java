@@ -16,7 +16,7 @@ public class Article {
     private int Love;
     private LocalDateTime createdDateTime;
     private LocalDateTime modifiedDateTime;
-    private ArrayList<Comment> commentToArticle = new ArrayList<Comment>();
+    private ArrayList<Comment> commentToArticle = new ArrayList<>();
 
     public void tagging(String tag) {
         this.tag = tag;
@@ -115,10 +115,6 @@ public class Article {
 
     }
 
-    public Comment getComment(int index) {
-        return commentToArticle.get(index);
-    }
-
     public void titleUpdater(String title) {
         this.title = title;
     }
@@ -154,7 +150,7 @@ public class Article {
 
     }
 
-    public void subReactionToArticle(int type) {
+    public void subReaction(int type) {
         switch (type) {
             case 1:
                 subGreat();
@@ -176,18 +172,18 @@ public class Article {
         }
     }
 
-    public String getArticleComment() {
+    public String getAllComment() {
         StringBuilder sb = new StringBuilder("");
         if (commentToArticle.size() != 0) {
             for (int i = 0; i < commentToArticle.size(); i++) {
-                sb.append("   * " + commentToArticle.get(i).getComment() + "\n");
+                sb.append("   * " + commentToArticle.get(i).getCommentCotent() + "\n");
             }
         }
         String answer = sb.toString();
         return answer;
     }
 
-    public void addSubComment(String sub, int i) {
+    public void addSubComment(String sub) {
         if (!sub.equals("")) {
             Comment tem = new Comment(sub);
             commentToArticle.add(tem);
@@ -246,7 +242,7 @@ public class Article {
 
     public void showComment() {
         //commentSorting();
-        System.out.print(getArticleComment());
+        System.out.print(getAllComment());
     }
 
 }

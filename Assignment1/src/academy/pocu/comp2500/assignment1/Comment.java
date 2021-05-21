@@ -8,7 +8,7 @@ public class Comment {
     private int downVoteCount;
     private String comment;
     private Comment ancestor;
-    private ArrayList<Comment> commentToComment = new ArrayList<Comment>();
+    private ArrayList<Comment> commentToComment = new ArrayList<>();
 
     public void CommentSorting() {
         for (int i = 0; i < commentToComment.size() - 1; i++) {
@@ -41,16 +41,7 @@ public class Comment {
         return (upVoteCount - downVoteCount);
     }
 
-    public String getSubComment() {
-        StringBuilder sb = new StringBuilder("");
-        for (Comment tem : commentToComment) {
-            sb.append(tem.getComment() + "\n");
-        }
-        String answer = sb.toString();
-        return answer;
-    }
-
-    public String getComment() {
+    public String getCommentCotent() {
         return comment;
     }
 
@@ -58,11 +49,10 @@ public class Comment {
         this.ancestor = ancestor;
     }
 
-    public void addSubComment(String subComment) {
-        if (!subComment.equals("")) {
-            Comment tem = new Comment(subComment);
-            commentToComment.add(tem);
-            tem.setAncestor(this);
+    public void addSubComment(Comment subComment) {
+        if (!subComment.getCommentCotent().equals("")) {
+            commentToComment.add(subComment);
+            subComment.setAncestor(this);
         }
 
     }
@@ -78,10 +68,19 @@ public class Comment {
     }
 
     public void showSubComment() {
-        System.out.print("* " + comment + "\n");
-        for (int i = 0; i < commentToComment.size(); i++) {
-            System.out.print("   * " + commentToComment.get(i).getComment() + "\n");
+        System.out.print(getSubComment());
+    }
+
+    public String getSubComment() {
+        StringBuilder sb = new StringBuilder("");
+        if (commentToComment.size() != 0) {
+            for (int i = 0; i < commentToComment.size(); i++) {
+                sb.append("   * " + commentToComment.get(i).getCommentCotent() + "\n");
+            }
         }
+        String answer = sb.toString();
+        return answer;
+
     }
 
     public void changeComment(String comment) {

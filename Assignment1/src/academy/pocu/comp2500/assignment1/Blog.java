@@ -6,10 +6,9 @@ import java.util.Scanner;
 
 public class Blog {
     Scanner sc = new Scanner(System.in);
-    private ArrayList<Article> articles;
+    private ArrayList<Article> articles = new ArrayList<>();
 
     public Blog() {
-        articles = new ArrayList<Article>();
     }
 
     public void postArticle(Article article) {
@@ -207,9 +206,19 @@ public class Blog {
     }
 
     public void showArticle() {
-        for (Article tem : articles) {
-            System.out.print("* " + tem.getTitle() + "\n");
+        System.out.print(getArticleList());
+    }
+
+    public String getArticleList() {
+        StringBuilder sb = new StringBuilder("");
+        if (articles.size() != 0) {
+            for (int i = 0; i < articles.size(); i++) {
+                sb.append("   * " + articles.get(i).getTitle() + "\n");
+            }
         }
+        String answer = sb.toString();
+        return answer;
+
     }
 
     public void showArticleAndComment() {
@@ -222,9 +231,6 @@ public class Blog {
     public Article getArticle(int i) {
         return articles.get(i);
     }
-
-
-
 }
 
 
