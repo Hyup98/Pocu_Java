@@ -46,8 +46,9 @@ public class Article {
         return commentToArticle.size();
     }
 
-    public void addComment(Comment com) {
-        commentToArticle.add(com);
+    public void addComment(String com) {
+        Comment tem = new Comment(com);
+        commentToArticle.add(tem);
     }
 
     public void addGreat() {

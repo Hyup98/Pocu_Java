@@ -24,11 +24,8 @@ public class Program {
         Comment Ctem_4 = new Comment("4번 댓글");
         Comment Ctem_5 = new Comment("5번 댓글");
 
-        tem.getArticle(0).addComment(Ctem_1);
-        tem.getArticle(1).addComment(Ctem_2);
-        tem.getArticle(1).addComment(Ctem_3);
-        tem.getArticle(1).addComment(Ctem_4);
-        tem.getArticle(2).addComment(Ctem_5);
+        tem.getArticle(0).addComment("안녕하세요");
+
 
         tem.showArticleAndComment();
         //tem.getArticle(0).getComment(0).showSubComment();
