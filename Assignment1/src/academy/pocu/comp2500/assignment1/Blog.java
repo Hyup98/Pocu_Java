@@ -1,80 +1,54 @@
 package academy.pocu.comp2500.assignment1;
 
-import java.util.Scanner;
-import java.util.Collections;
-import java.util.Comparator;
-
 import java.util.ArrayList;
-import java.util.stream.StreamSupport;
+import java.util.Collections;
+import java.util.Scanner;
 
 public class Blog {
     Scanner sc = new Scanner(System.in);
     private ArrayList<Article> articles;
-    private String blogId;
 
-    public Blog(String blogId) {
-        this.blogId = blogId;
+    public Blog() {
         articles = new ArrayList<Article>();
     }
 
-    public void postArticle(Article article, String blogId) {
+    public void postArticle(Article article) {
+        if (!article.getTitle().equals("")) {
 
-        if (blogId.equals(this.blogId)) {
-
-            if (!article.getTitle().equals("")) {
-
-                if (!article.getContent().equals("")) {
-                    article.setCreatedDateTime();
-                    articles.add(article);
-                } else {
-                    System.out.print("내용이 없습니다");
-                }
-
+            if (!article.getContent().equals("")) {
+                article.setCreatedDateTime();
+                articles.add(article);
             } else {
-                System.out.print("제목이 없습니다.");
+                System.out.print("내용이 없습니다");
             }
         } else {
-            System.out.print("블로그 호스트만 글을 작성할 수 있습니다.");
+            System.out.print("제목이 없습니다.");
         }
     }
 
-    public void postTitleUpdater(String blogId, int i, String title) {
-
-        if (blogId.equals(this.blogId)) {
-
-            if (!title.equals("")) {
-                articles.get(i).setTitle(title);
-                articles.get(i).setModifiedDateTime();
-            } else {
-                System.out.print("바꾸고 싶은 문자열이 비어있습니다.");
-            }
+    public void postTitleUpdater(int i, String title) {
+        if (!title.equals("")) {
+            articles.get(i).setTitle(title);
+            articles.get(i).setModifiedDateTime();
         } else {
-            System.out.print("블로그 주인만 제목을 수정할 수 있습니다.");
+            System.out.print("바꾸고 싶은 문자열이 비어있습니다.");
         }
     }
 
-    public void PostBodyUpdater(String blogId, String newBody, int i) {
-        if (blogId.equals(this.blogId)) {
-            if (!newBody.equals("")) {
-                articles.get(i).setModifiedDateTime();
-                articles.get(i).setContent(newBody);
-            } else {
-                System.out.print("바꿀 내용이 비어있습니다.");
-            }
+    public void PostBodyUpdater(String newBody, int i) {
+        if (!newBody.equals("")) {
+            articles.get(i).setModifiedDateTime();
+            articles.get(i).setContent(newBody);
         } else {
-            System.out.print("블로그 주인만 글을 수정할 수 있습니다.");
+            System.out.print("바꿀 내용이 비어있습니다.");
         }
     }
 
-    public void PostTagAdder(String blogId, String tag, int i) {
-        if (blogId.equals(this.blogId)) {
-            if (!tag.equals("")) {
-                articles.get(i).tagging(tag);
-            } else {
-                System.out.print("널문자 입니다.");
-            }
+    public void PostTagAdder(String tag, int i) {
+        if (!tag.equals("")) {
+            articles.get(i).tagging(tag);
         } else {
-            System.out.print("블로그 주인만 테그를 추가할 수 있습니다.");
+            System.out.print("널문자 입니다.");
         }
     }
 
