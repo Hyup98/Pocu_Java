@@ -38,29 +38,6 @@ public class Blog {
         }
     }
 
-    public void postArticle(Article article, String blogId, String tag) {
-
-        if (blogId.equals(this.blogId)) {
-
-            if (!article.getTitle().equals("")) {
-
-                if (!article.getContent().equals("")) {
-                    if (!tag.equals("")) {
-                        article.setCreatedDateTime();
-                        article.setTag(tag);
-                        articles.add(article);
-                    }
-                } else {
-                    System.out.print("내용이 없습니다");
-                }
-            } else {
-                System.out.print("제목이 없습니다.");
-            }
-        } else {
-            System.out.print("블로그 호스트만 글을 작성할 수 있습니다.");
-        }
-    }
-
     public void postTitleUpdater(String blogId, int i, String title) {
 
         if (blogId.equals(this.blogId)) {
@@ -256,18 +233,12 @@ public class Blog {
         articles.get(i).addComment(comment, writeId);
     }
 
-    /*
-    public void showComment(int i) {
-        articles.get(i).commentSorting();
-        System.out.print(articles.get(i).getContent() + "\n");
-        String answer = articles.get(i).getComment();
-        System.out.print(answer);
-    }
 
-     */
-
-    public void showReactionArticle(int i) {
-        articles.get(i).showReaction();
+    public void showComment() {
+        for(Article tem : articles){
+            System.out.print(tem.getContent()+"\n");
+            tem.showComment();
+        }
     }
 
     public Article getArticle(int i) {
