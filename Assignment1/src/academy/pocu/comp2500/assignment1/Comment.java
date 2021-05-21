@@ -45,16 +45,16 @@ public class Comment {
 
     public String getSubComment() {
         StringBuilder sb = new StringBuilder("");
-        
-        for(Comment tem:commentToComment) {
+
+        for (Comment tem : commentToComment) {
             sb.append(tem.getComment() + "\n");
         }
         String answer = sb.toString();
         return answer;
 
     }
-    
-    public String getComment(){
+
+    public String getComment() {
         return comment;
     }
 
@@ -94,10 +94,10 @@ public class Comment {
         }
     }
 
-    public void showSubComment(){
-        System.out.print("* "+comment+"\n");
-        for(int i = 0; i<commentToComment.size();i++){
-            System.out.print("   * "+commentToComment.get(i).getComment() + "\n");
+    public void showSubComment() {
+        System.out.print("* " + comment + "\n");
+        for (int i = 0; i < commentToComment.size(); i++) {
+            System.out.print("   * " + commentToComment.get(i).getComment() + "\n");
         }
     }
 

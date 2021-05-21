@@ -235,14 +235,14 @@ public class Blog {
 
 
     public void showArticle() {
-        for(Article tem : articles){
-            System.out.print("* "+tem.getContent()+"\n");
+        for (Article tem : articles) {
+            System.out.print("* " + tem.getContent() + "\n");
         }
     }
 
-    public void showArticleAndComment(){
-        for(int i = 0;i<articles.size();i++){
-            System.out.print("* "+articles.get(i).getContent()+"\n");
+    public void showArticleAndComment() {
+        for (int i = 0; i < articles.size(); i++) {
+            System.out.print("* " + articles.get(i).getContent() + "\n");
             articles.get(i).showComment();
         }
     }

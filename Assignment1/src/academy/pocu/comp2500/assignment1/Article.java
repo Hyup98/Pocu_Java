@@ -45,7 +45,7 @@ public class Article {
 
     }
 
-    public int getCommentAmmount(){
+    public int getCommentAmmount() {
         return commentToArticle.size();
     }
 
@@ -123,15 +123,15 @@ public class Article {
 
     }
 
-    public Comment getComment(int index){
+    public Comment getComment(int index) {
         return commentToArticle.get(index);
     }
 
     public String getArticleComment() {
         StringBuilder sb = new StringBuilder("");
         if (commentToArticle.size() != 0) {
-            for(int  i = 0; i<commentToArticle.size();i++){
-                sb.append("   * "+commentToArticle.get(i).getComment()+"\n");
+            for (int i = 0; i < commentToArticle.size(); i++) {
+                sb.append("   * " + commentToArticle.get(i).getComment() + "\n");
             }
         }
         String answer = sb.toString();
@@ -199,7 +199,7 @@ public class Article {
         this.tag = tag;
     }
 
-    public void showComment(){
+    public void showComment() {
         //commentSorting();
         System.out.print(getArticleComment());
     }
