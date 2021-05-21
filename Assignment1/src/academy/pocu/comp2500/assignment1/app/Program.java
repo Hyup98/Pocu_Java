@@ -25,6 +25,8 @@ public class Program {
         Comment Ctem_5 = new Comment("5번 댓글");
 
         tem.getArticle(0).addComment(Ctem_1);
+        tem.getArticle(0).getComment(0).addSubComment("1번 댓글의 대댓글");
+        tem.getArticle(0).getComment(0).showSubComment();
 
 
         tem.showArticleAndComment();

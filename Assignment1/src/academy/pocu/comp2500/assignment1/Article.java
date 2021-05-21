@@ -191,6 +191,10 @@ public class Article {
         }
     }
 
+    public Comment getComment(int i){
+        return commentToArticle.get(i);
+    }
+
     public String getAuthor() {
         return author;
     }
