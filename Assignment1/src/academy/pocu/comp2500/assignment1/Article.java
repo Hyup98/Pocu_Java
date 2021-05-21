@@ -1,9 +1,7 @@
 package academy.pocu.comp2500.assignment1;
 
-import javax.crypto.CipherInputStream;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.time.OffsetDateTime;
 import java.util.Collections;
 
 public class Article {
@@ -162,7 +160,7 @@ public class Article {
         this.author = author;
     }
 
-    public void changeComment( int i, String comment) {
+    public void changeComment(int i, String comment) {
         commentToArticle.get(i).setComment(comment);
     }
 
