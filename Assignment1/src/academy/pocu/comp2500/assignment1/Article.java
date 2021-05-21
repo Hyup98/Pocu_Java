@@ -45,6 +45,10 @@ public class Article {
 
     }
 
+    public int getCommentAmmount(){
+        return CommentToArticle.size();
+    }
+
     public void addComment(String comment, String writeId) {
         Comment tem = new Comment(comment, writeId);
         CommentToArticle.add(tem);
@@ -119,11 +123,15 @@ public class Article {
 
     }
 
-    public String getComment() {
+    public Comment getComment(int index){
+        return CommentToArticle.get(index);
+    }
+
+    public String getArticleComment() {
         StringBuilder sb = new StringBuilder("");
         if (CommentToArticle.size() != 0) {
-            for (Comment com : CommentToArticle) {
-                sb.append(com.getComment());
+            for(int  i = 0; i<CommentToArticle.size();i++){
+                sb.append("   * "+CommentToArticle.get(i).getComment()+"\n");
             }
         }
         String answer = sb.toString();
@@ -136,10 +144,6 @@ public class Article {
             CommentToArticle.add(tem);
             tem.setAncestor(null);
         }
-    }
-
-    public Comment getComment(int i) {
-        return CommentToArticle.get(i);
     }
 
     public String getAuthor() {
@@ -196,8 +200,8 @@ public class Article {
     }
 
     public void showComment(){
-        commentSorting();
-        System.out.print(getComment());
+        //commentSorting();
+        System.out.print(getArticleComment());
     }
 
 }

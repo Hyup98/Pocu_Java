@@ -26,7 +26,11 @@ public class Program {
         tem.commentAdder(1,"댓글입니다2","123");
         tem.commentAdder(1,"댓글입니다3","123");
 
-        tem.showComment();
+        tem.getArticle(0).getComment(0).addSubComment("댓글 1의 댓글입니다.","123");
+        tem.getArticle(0).getComment(0).addSubComment("댓글 1의 댓글입니다.","123");
+
+        tem.showArticleAndComment();
+        tem.getArticle(0).getComment(0).showSubComment();
 
 
 

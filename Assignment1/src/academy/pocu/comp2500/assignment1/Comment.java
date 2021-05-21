@@ -9,18 +9,18 @@ public class Comment {
     private int downVoteCount;
     private String comment;
     private Comment ancestor;
-    private ArrayList<Comment> CommentToComment = new ArrayList<Comment>();
+    private ArrayList<Comment> commentToComment = new ArrayList<Comment>();
 
     public void CommentSorting() {
-        for (int i = 0; i < CommentToComment.size() - 1; i++) {
-            for (int j = i + 1; j < CommentToComment.size(); j++) {
-                if (CommentToComment.get(i).voteResult() < CommentToComment.get(j).voteResult()) {
-                    Collections.swap(CommentToComment, i, j);
+        for (int i = 0; i < commentToComment.size() - 1; i++) {
+            for (int j = i + 1; j < commentToComment.size(); j++) {
+                if (commentToComment.get(i).voteResult() < commentToComment.get(j).voteResult()) {
+                    Collections.swap(commentToComment, i, j);
                 }
             }
         }
-        for (int i = 0; i < CommentToComment.size(); i++) {
-            CommentToComment.get(i).CommentSorting();
+        for (int i = 0; i < commentToComment.size(); i++) {
+            commentToComment.get(i).CommentSorting();
         }
     }
 
@@ -43,30 +43,19 @@ public class Comment {
         return (upVoteCount - downVoteCount);
     }
 
-    public String getComment() {
+    public String getSubComment() {
         StringBuilder sb = new StringBuilder("");
-        int depth = 1;
-        Comment check = this.ancestor;
-        while (true) {
-            if (check == null) {
-                break;
-            }
-
-            check = check.ancestor;
-            depth++;
+        
+        for(Comment tem:commentToComment) {
+            sb.append(tem.getComment() + "\n");
         }
-        for (int i = 0; i < depth; i++) {
-            sb.append("  ");
-        }
-        sb.append("* " + comment + "\n");
-        if (CommentToComment.size() != 0) {
-            for (Comment subCom : CommentToComment)
-                sb.append(subCom.getComment());
-        }
-
         String answer = sb.toString();
         return answer;
 
+    }
+    
+    public String getComment(){
+        return comment;
     }
 
     public void setAncestor(Comment ancestor) {
@@ -76,14 +65,14 @@ public class Comment {
     public void addSubComment(String subComment, String writerId) {
         if (!subComment.equals("")) {
             Comment tem = new Comment(subComment, writerId);
-            CommentToComment.add(tem);
+            commentToComment.add(tem);
             tem.setAncestor(this);
         }
 
     }
 
     public Comment getSubComment(int i) {
-        return CommentToComment.get(i);
+        return commentToComment.get(i);
     }
 
     public void setComment(String comment, String writerId) {
@@ -100,8 +89,15 @@ public class Comment {
 
 
     public void changeSubcomment(int i, String writerId, String comment) {
-        if (CommentToComment.get(i).getWriterId().equals(writerId)) {
-            CommentToComment.get(i).setComment(comment, writerId);
+        if (commentToComment.get(i).getWriterId().equals(writerId)) {
+            commentToComment.get(i).setComment(comment, writerId);
+        }
+    }
+
+    public void showSubComment(){
+        System.out.print("* "+comment+"\n");
+        for(int i = 0; i<commentToComment.size();i++){
+            System.out.print("   * "+commentToComment.get(i).getComment() + "\n");
         }
     }
 
