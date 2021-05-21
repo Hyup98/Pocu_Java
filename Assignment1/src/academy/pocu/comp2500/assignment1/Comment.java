@@ -49,10 +49,10 @@ public class Comment {
         this.ancestor = ancestor;
     }
 
-    public void addSubComment(Comment subComment) {
-        if (!subComment.getCommentCotent().equals("")) {
-            commentToComment.add(subComment);
-            subComment.setAncestor(this);
+    public void addSubComment(Comment Comment) {
+        if (!Comment.getCommentCotent().equals("")) {
+            commentToComment.add(Comment);
+            Comment.setAncestor(this);
         }
 
     }
