@@ -119,8 +119,8 @@ public class Article {
         this.title = title;
     }
 
-    public void bodyUpdater(String Body) {
-        this.content = Body;
+    public void bodyUpdater(String body) {
+        this.content = body;
     }
 
     public void tagAdder(String tag) {
