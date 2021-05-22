@@ -183,11 +183,9 @@ public class Article {
         return answer;
     }
 
-    public void addSubComment(String sub) {
-        if (!sub.equals("")) {
-            Comment tem = new Comment(sub);
-            commentToArticle.add(tem);
-            tem.setAncestor(null);
+    public void addSubComment(Comment comment) {
+        if(!comment.getCommentCotent().equals("")){
+            commentToArticle.add(comment);
         }
     }
 
