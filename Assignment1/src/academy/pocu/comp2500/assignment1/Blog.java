@@ -12,16 +12,15 @@ public class Blog {
     }
 
     public void postArticle(Article article) {
-        if (!article.getTitle().equals("")) {
-
-            if (!article.getContent().equals("")) {
-                article.setCreatedDateTime();
-                articles.add(article);
-            } else {
-                System.out.print("내용이 없습니다");
+        if(article != null) {
+            if (!article.getTitle().equals("")) {
+                if (!article.getContent().equals("")) {
+                    if (!article.getAuthor().equals("")) {
+                        article.setCreatedDateTime();
+                        articles.add(article);
+                    }
+                }
             }
-        } else {
-            System.out.print("제목이 없습니다.");
         }
     }
 
