@@ -5,10 +5,11 @@ import java.util.Collections;
 import java.util.Scanner;
 
 public class Blog {
-    Scanner sc = new Scanner(System.in);
     private ArrayList<Article> articles = new ArrayList<>();
+    private int printType;
 
     public Blog() {
+        printType = 0;
     }
 
     public void postArticle(Article article) {
@@ -55,7 +56,6 @@ public class Blog {
 
     public void filteringByAuthor(String author) {
         int tem = 1;
-        System.out.print("**********<블로그 글>**********\n");
         for (int i = 0; i < articles.size(); i++) {
             if (articles.get(i).getAuthor().equals(author)) {
                 System.out.print(tem + ") " + articles.get(i).getTitle() + "\n");
@@ -67,7 +67,6 @@ public class Blog {
 
     public void filteringByTag(String tag) {
         int tem = 1;
-        System.out.print("**********<블로그 글>**********\n");
         for (int i = 0; i < articles.size(); i++) {
             if (articles.get(i).getTag().equals(tag)) {
                 System.out.print(tem + ") " + articles.get(i).getTitle() + "\n");
@@ -78,6 +77,7 @@ public class Blog {
     }
 
     public void sortAscendingByCreatDate() {
+        printType = 1;
         for (int i = 0; i < articles.size() - 1; i++) {
             for (int j = i + 1; j < articles.size(); j++) {
                 if (articles.get(i).getCreatedDateTime().isAfter(articles.get(j).getCreatedDateTime())) {
@@ -85,15 +85,10 @@ public class Blog {
                 }
             }
         }
-        System.out.print("**********<블로그 글>**********\n");
-
-        for (int i = 0; i < articles.size(); i++) {
-            System.out.print((i + 1) + ") " + articles.get(i).getTitle() + "\n");
-            System.out.print(articles.get(i).getCreatedDateTime() + "\n");
-        }
     }
 
     public void sortAscendingByModifiedDate() {
+        printType = 1;
         for (int i = 0; i < articles.size() - 1; i++) {
             for (int j = i + 1; j < articles.size(); j++) {
                 if (articles.get(i).getModifiedDateTime().isAfter(articles.get(j).getModifiedDateTime())) {
@@ -101,15 +96,10 @@ public class Blog {
                 }
             }
         }
-        System.out.print("**********<블로그 글>**********\n");
-
-        for (int i = 0; i < articles.size(); i++) {
-            System.out.print((i + 1) + ") " + articles.get(i).getTitle() + "\n");
-            System.out.print(articles.get(i).getCreatedDateTime() + "\n");
-        }
     }
 
     public void sortAscendingByTitle() {
+        printType = 1;
         for (int i = 0; i < articles.size() - 1; i++) {
             for (int j = i + 1; j < articles.size(); j++) {
                 if (articles.get(i).getTitle().compareTo(articles.get(j).getTitle()) > 0) {
@@ -117,46 +107,33 @@ public class Blog {
                 }
             }
         }
-        System.out.print("**********<블로그 글>**********\n");
-
-        for (int i = 0; i < articles.size(); i++) {
-            System.out.print((i + 1) + ") " + articles.get(i).getTitle() + "\n");
-            System.out.print(articles.get(i).getCreatedDateTime() + "\n");
-        }
     }
 
     public void sortDescendingByCreatDate() {
+        printType = 1;
         for (int i = 0; i < articles.size() - 1; i++) {
             for (int j = i + 1; j < articles.size(); j++) {
                 if (articles.get(i).getCreatedDateTime().isBefore(articles.get(j).getCreatedDateTime())) {
-                    Collections.swap(articles, i, i);
+                    Collections.swap(articles, i, j);
                 }
             }
         }
-        System.out.print("**********<블로그 글>**********\n");
-
-        for (int i = 0; i < articles.size(); i++) {
-            System.out.print((i + 1) + ") " + articles.get(i).getTitle() + "\n");
-            System.out.print(articles.get(i).getCreatedDateTime() + "\n");
-        }
-
     }
 
     public void sortDescendingByModifiedDate() {
+        printType = 1;
         for (int i = 0; i < articles.size() - 1; i++) {
             for (int j = i + 1; j < articles.size(); j++) {
                 if (articles.get(i).getModifiedDateTime().isBefore(articles.get(j).getModifiedDateTime())) {
-                    Collections.swap(articles, i, i);
+                    Collections.swap(articles, i, j);
                 }
             }
         }
-        System.out.print("**********<블로그 글>**********\n");
-
+        /*
         for (int i = 0; i < articles.size(); i++) {
             System.out.print((i + 1) + ") " + articles.get(i).getTitle() + "\n");
-            System.out.print(articles.get(i).getCreatedDateTime() + "\n");
         }
-
+         */
     }
 
     public void setSrotingType() {
@@ -210,6 +187,11 @@ public class Blog {
 
     public String getArticleList() {
         StringBuilder sb = new StringBuilder("");
+
+        if(printType == 0){
+            sortAscendingByCreatDate();
+        }
+
         if (articles.size() != 0) {
             for (int i = 0; i < articles.size(); i++) {
                 sb.append("   * " + articles.get(i).getTitle() + "\n");
