@@ -55,6 +55,7 @@ public class Comment {
             comment.setAncestor(this);
         }
 
+
     }
 
     public Comment getComment(int i) {

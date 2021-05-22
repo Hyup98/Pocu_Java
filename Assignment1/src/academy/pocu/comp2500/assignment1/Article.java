@@ -9,11 +9,11 @@ public class Article {
     private String title;
     private String content;
     private String tag;
-    private int Great;
-    private int Sad;
-    private int Angry;
-    private int Fun;
-    private int Love;
+    private int great;
+    private int sad;
+    private int angry;
+    private int fun;
+    private int love;
     private LocalDateTime createdDateTime;
     private LocalDateTime modifiedDateTime;
     private ArrayList<Comment> commentToArticle = new ArrayList<>();
@@ -26,20 +26,20 @@ public class Article {
         this.author = author;
         this.title = title;
         this.content = content;
-        Great = 0;
-        Sad = 0;
-        Angry = 0;
-        Fun = 0;
-        Love = 0;
+        great = 0;
+        sad = 0;
+        angry = 0;
+        fun = 0;
+        love = 0;
 
     }
 
     public void showReaction() {
-        System.out.print("Great - " + Great + "\n" +
-                "Sad - " + Sad + "\n" +
-                "Angry - " + Angry + "\n" +
-                "Fun - " + Fun + "\n" +
-                "Love - " + Love + "\n");
+        System.out.print("great - " + great + "\n" +
+                "sad - " + sad + "\n" +
+                "angry - " + angry + "\n" +
+                "fun - " + fun + "\n" +
+                "love - " + love + "\n");
     }
 
     public int getCommentAmmount() {
@@ -47,58 +47,58 @@ public class Article {
     }
 
     public void addComment(Comment comment) {
-        if(!comment.getCommentCotent().equals("")){
+        if (!comment.getCommentCotent().equals("")) {
             commentToArticle.add(comment);
         }
     }
 
-    public void addGreat() {
-        Great++;
+    public void addgreat() {
+        great++;
     }
 
-    public void subGreat() {
-        if (Great > 0) {
-            Great--;
+    public void subgreat() {
+        if (great > 0) {
+            great--;
         }
     }
 
-    public void addSad() {
-        Sad++;
+    public void addsad() {
+        sad++;
     }
 
-    public void subSad() {
-        if (Sad > 0) {
-            Sad--;
+    public void subsad() {
+        if (sad > 0) {
+            sad--;
         }
     }
 
-    public void addAngry() {
-        Angry++;
+    public void addangry() {
+        angry++;
     }
 
-    public void subAngry() {
-        if (Angry > 0) {
-            Angry--;
+    public void subangry() {
+        if (angry > 0) {
+            angry--;
         }
     }
 
-    public void addFun() {
-        Fun++;
+    public void addfun() {
+        fun++;
     }
 
-    public void subFun() {
-        if (Fun > 0) {
-            Fun--;
+    public void subfun() {
+        if (fun > 0) {
+            fun--;
         }
     }
 
-    public void addLove() {
-        Love++;
+    public void addlove() {
+        love++;
     }
 
-    public void subLove() {
-        if (Love > 0) {
-            Love--;
+    public void sublove() {
+        if (love > 0) {
+            love--;
         }
     }
 
@@ -132,19 +132,19 @@ public class Article {
     public void addReaction(int type){
         switch (type) {
             case 1:
-                addGreat();
+                addgreat();
                 break;
             case 2:
-                addSad();
+                addsad();
                 break;
             case 3:
-                addAngry();
+                addangry();
                 break;
             case 4:
-                addFun();
+                addfun();
                 break;
             case 5:
-                addLove();
+                addlove();
                 break;
             default:
                 break;
@@ -155,19 +155,19 @@ public class Article {
     public void subReaction(int type) {
         switch (type) {
             case 1:
-                subGreat();
+                subgreat();
                 break;
             case 2:
-                subSad();
+                subsad();
                 break;
             case 3:
-                subAngry();
+                subangry();
                 break;
             case 4:
-                subFun();
+                subfun();
                 break;
             case 5:
-                subLove();
+                sublove();
                 break;
             default:
                 break;
