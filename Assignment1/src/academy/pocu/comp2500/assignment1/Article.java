@@ -47,7 +47,9 @@ public class Article {
     }
 
     public void addComment(Comment comment) {
-        commentToArticle.add(comment);
+        if(!comment.getCommentCotent().equals("")){
+            commentToArticle.add(comment);
+        }
     }
 
     public void addGreat() {
