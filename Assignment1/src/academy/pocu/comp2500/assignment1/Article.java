@@ -57,9 +57,7 @@ public class Article {
     }
 
     public void addComment(Comment comment) {
-        if (!comment.getCommentCotent().equals("")) {
-            commentToArticle.add(comment);
-        }
+        commentToArticle.add(comment);
     }
 
     public void addgreat() {
@@ -222,16 +220,18 @@ public class Article {
 
     public void setTitle(String title, String articleId) {
         if (articleId.equals(this.articleId)) {
-            this.title = title;
+            if (!title.equals("")) {
+                this.title = title;
+            }
         }
-
     }
 
     public void setAuthor(String author, String articleId) {
         if (articleId.equals(this.articleId)) {
-            this.author = author;
+            if (!author.equals("")) {
+                this.author = author;
+            }
         }
-
     }
 
     public String getContent() {
@@ -240,7 +240,9 @@ public class Article {
 
     public void setContent(String content, String articleId) {
         if (articleId.equals(this.articleId)) {
-            this.content = content;
+            if (!content.equals("")) {
+                this.content = content;
+            }
         }
     }
 
@@ -265,7 +267,9 @@ public class Article {
     }
 
     public void setTag(String tag) {
-        this.tag = tag;
+        if (tag.equals("")) {
+            this.tag = tag;
+        }
     }
 
     public void showComment() {

@@ -56,11 +56,8 @@ public class Comment {
     }
 
     public void addSubComment(Comment comment) {
-        if (!comment.getCommentCotent().equals("")) {
-            commentToComment.add(comment);
-            comment.setAncestor(this);
-        }
-
+        commentToComment.add(comment);
+        comment.setAncestor(this);
 
     }
 
@@ -94,7 +91,9 @@ public class Comment {
 
     public void changeComment(String comment, String commentId) {
         if (commentId.equals(this.commentId)) {
-            this.comment = comment;
+            if (comment.equals("")) {
+                this.comment = comment;
+            }
         }
     }
 
