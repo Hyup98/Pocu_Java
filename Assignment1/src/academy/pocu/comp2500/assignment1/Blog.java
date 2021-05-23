@@ -16,9 +16,9 @@ public class Blog {
         }
     }
 
-    public void postArticle(Article article,String blogId) {
+    public void postArticle(Article article) {
         if (article != null) {
-            if (blogId.equals(this.blogId)) {
+            if (article.getBlogId().equals(this.blogId)) {
                 if (!article.getTitle().equals("")) {
                     if (!article.getContent().equals("")) {
                         if (!article.getAuthor().equals("")) {

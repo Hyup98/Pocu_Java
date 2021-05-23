@@ -6,6 +6,7 @@ import java.util.Collections;
 
 public class Article {
     private String articleId;
+    private String blogId;
     private String author;
     private String title;
     private String content;
@@ -23,7 +24,7 @@ public class Article {
         this.tag = tag;
     }
 
-    public Article(String title, String content, String author, String articleId) {
+    public Article(String title, String content, String author, String articleId,String blogId) {
         if (!title.equals("")) {
             if (!content.equals("")) {
                 if (!author.equals("")) {
@@ -39,10 +40,15 @@ public class Article {
                         love = 0;
                         createdDateTime = null;
                         modifiedDateTime = null;
+                        this.blogId = blogId;
                     }
                 }
             }
         }
+    }
+
+    public String getBlogId() {
+        return this.blogId;
     }
 
     public void showReaction() {
