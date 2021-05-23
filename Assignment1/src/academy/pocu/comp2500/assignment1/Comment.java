@@ -4,13 +4,21 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Comment {
+    private String commentId;
     private int upVoteCount;
     private int downVoteCount;
     private String comment;
     private Comment ancestor;
     private ArrayList<Comment> commentToComment = new ArrayList<>();
 
-    public void CommentSorting() {
+    public Comment(String comment, String commentId) {
+        this.comment = comment;
+        this.commentId = commentId;
+        upVoteCount = 0;
+        downVoteCount = 0;
+    }
+
+    public void commentSorting() {
         for (int i = 0; i < commentToComment.size() - 1; i++) {
             for (int j = i + 1; j < commentToComment.size(); j++) {
                 if (commentToComment.get(i).voteResult() < commentToComment.get(j).voteResult()) {
@@ -19,14 +27,8 @@ public class Comment {
             }
         }
         for (int i = 0; i < commentToComment.size(); i++) {
-            commentToComment.get(i).CommentSorting();
+            commentToComment.get(i).commentSorting();
         }
-    }
-
-    public Comment(String comment) {
-        this.comment = comment;
-        upVoteCount = 0;
-        downVoteCount = 0;
     }
 
     public void upVoteToComment() {
@@ -62,9 +64,11 @@ public class Comment {
         return commentToComment.get(i);
     }
 
-    public void setComment(String comment) {
-        if (!comment.equals("")) {
-            this.comment = comment;
+    public void setComment(String comment, String commentId) {
+        if (commentId.equals(this.commentId)) {
+            if (!comment.equals("")) {
+                this.comment = comment;
+            }
         }
     }
 
@@ -84,8 +88,10 @@ public class Comment {
 
     }
 
-    public void changeComment(String comment) {
-        this.comment = comment;
+    public void changeComment(String comment, String commentId) {
+        if (commentId.equals(this.commentId)) {
+            this.comment = comment;
+        }
     }
 
 

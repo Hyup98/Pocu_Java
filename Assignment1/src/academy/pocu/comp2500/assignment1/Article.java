@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Article {
+    private String articleId;
     private String author;
     private String title;
     private String content;
@@ -22,7 +23,8 @@ public class Article {
         this.tag = tag;
     }
 
-    public Article(String title, String content, String author) {
+    public Article(String title, String content, String author, String articleId) {
+        this.articleId = articleId;
         this.author = author;
         this.title = title;
         this.content = content;
@@ -112,24 +114,31 @@ public class Article {
         }
 
         for (int i = 0; i < commentToArticle.size(); i++) {
-            commentToArticle.get(i).CommentSorting();
+            commentToArticle.get(i).commentSorting();
         }
 
     }
 
-    public void titleUpdater(String title) {
-        this.title = title;
+    public void titleUpdater(String title, String articleId) {
+        if (articleId.equals(this.articleId)) {
+            this.title = title;
+        }
+
     }
 
-    public void bodyUpdater(String body) {
-        this.content = body;
+    public void bodyUpdater(String body, String articleId) {
+        if (articleId.equals(this.articleId)) {
+            this.content = body;
+        }
     }
 
-    public void tagAdder(String tag) {
-        this.tag = tag;
+    public void tagAdder(String tag, String articleId) {
+        if (articleId.equals(this.articleId)) {
+            this.tag = tag;
+        }
     }
 
-    public void addReaction(int type){
+    public void addReaction(int type) {
         switch (type) {
             case 1:
                 addgreat();
@@ -186,12 +195,12 @@ public class Article {
     }
 
     public void addSubComment(Comment comment) {
-        if(!comment.getCommentCotent().equals("")){
+        if (!comment.getCommentCotent().equals("")) {
             commentToArticle.add(comment);
         }
     }
 
-    public Comment getComment(int i){
+    public Comment getComment(int i) {
         return commentToArticle.get(i);
     }
 
@@ -203,21 +212,28 @@ public class Article {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTitle(String title, String articleId) {
+        if (articleId.equals(this.articleId)) {
+            this.title = title;
+        }
+
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setAuthor(String author, String articleId) {
+        if (articleId.equals(this.articleId)) {
+            this.author = author;
+        }
+
     }
 
     public String getContent() {
         return content;
     }
 
-    public void setContent(String content) {
-        this.content = content;
-
+    public void setContent(String content, String articleId) {
+        if (articleId.equals(this.articleId)) {
+            this.content = content;
+        }
     }
 
     public void setCreatedDateTime() {

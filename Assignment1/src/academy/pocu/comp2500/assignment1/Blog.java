@@ -7,13 +7,15 @@ import java.util.Scanner;
 public class Blog {
     private ArrayList<Article> articles = new ArrayList<>();
     private int printType;
+    private String blogId;
 
-    public Blog() {
+    public Blog(String blogId) {
+        this.blogId = blogId;
         printType = 0;
     }
 
     public void postArticle(Article article) {
-        if(article != null) {
+        if (article != null) {
             if (!article.getTitle().equals("")) {
                 if (!article.getContent().equals("")) {
                     if (!article.getAuthor().equals("")) {
@@ -182,7 +184,7 @@ public class Blog {
     public String getArticleList() {
         StringBuilder sb = new StringBuilder("");
 
-        if(printType == 0){
+        if (printType == 0) {
             sortAscendingByCreatDate();
         }
 
