@@ -12,10 +12,14 @@ public class Comment {
     private ArrayList<Comment> commentToComment = new ArrayList<>();
 
     public Comment(String comment, String commentId) {
-        this.comment = comment;
-        this.commentId = commentId;
-        upVoteCount = 0;
-        downVoteCount = 0;
+        if (!comment.equals("")) {
+            if (!commentId.equals("")) {
+                this.comment = comment;
+                this.commentId = commentId;
+                upVoteCount = 0;
+                downVoteCount = 0;
+            }
+        }
     }
 
     public void commentSorting() {

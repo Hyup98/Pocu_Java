@@ -24,16 +24,24 @@ public class Article {
     }
 
     public Article(String title, String content, String author, String articleId) {
-        this.articleId = articleId;
-        this.author = author;
-        this.title = title;
-        this.content = content;
-        great = 0;
-        sad = 0;
-        angry = 0;
-        fun = 0;
-        love = 0;
+        if (!title.equals("")) {
+            if (!content.equals("")) {
+                if (!author.equals("")) {
+                    if (!articleId.equals("")) {
+                        this.articleId = articleId;
+                        this.author = author;
+                        this.title = title;
+                        this.content = content;
+                        great = 0;
+                        sad = 0;
+                        angry = 0;
+                        fun = 0;
+                        love = 0;
+                    }
 
+                }
+            }
+        }
     }
 
     public void showReaction() {

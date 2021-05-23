@@ -10,8 +10,10 @@ public class Blog {
     private String blogId;
 
     public Blog(String blogId) {
-        this.blogId = blogId;
-        printType = 0;
+        if (!blogId.equals("")) {
+            this.blogId = blogId;
+            printType = 0;
+        }
     }
 
     public void postArticle(Article article) {
