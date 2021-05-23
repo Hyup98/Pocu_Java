@@ -18,7 +18,7 @@ public class Article {
     private int love;
     private LocalDateTime createdDateTime;
     private LocalDateTime modifiedDateTime;
-    private ArrayList<Comment> commentToArticle = new ArrayList<>();
+    private ArrayList<Comment> commentToArticle;
 
     public void tagging(String tag) {
         this.tag = tag;
@@ -41,6 +41,7 @@ public class Article {
                         createdDateTime = null;
                         modifiedDateTime = null;
                         this.blogId = blogId;
+                        commentToArticle = new ArrayList<Comment>();
                     }
                 }
             }

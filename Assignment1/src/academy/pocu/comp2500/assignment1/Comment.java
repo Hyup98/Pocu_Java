@@ -9,7 +9,7 @@ public class Comment {
     private int downVoteCount;
     private String comment;
     private Comment ancestor;
-    private ArrayList<Comment> commentToComment = new ArrayList<>();
+    private ArrayList<Comment> commentToComment;
 
     public Comment(String comment, String commentId) {
         if (!comment.equals("")) {
@@ -19,6 +19,7 @@ public class Comment {
                 upVoteCount = 0;
                 downVoteCount = 0;
                 ancestor = null;
+                commentToComment = new ArrayList<Comment>();
             }
         }
     }

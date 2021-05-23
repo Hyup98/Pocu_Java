@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Scanner;
 
 public class Blog {
-    private ArrayList<Article> articles = new ArrayList<>();
+    private ArrayList<Article> articles;
     private int printType;
     private String blogId;
 
@@ -13,6 +13,7 @@ public class Blog {
         if (!blogId.equals("")) {
             this.blogId = blogId;
             printType = 0;
+            articles = new ArrayList<Article>();
         }
     }
 
