@@ -37,8 +37,9 @@ public class Article {
                         angry = 0;
                         fun = 0;
                         love = 0;
+                        createdDateTime = null;
+                        modifiedDateTime = null;
                     }
-
                 }
             }
         }

@@ -18,6 +18,7 @@ public class Comment {
                 this.commentId = commentId;
                 upVoteCount = 0;
                 downVoteCount = 0;
+                ancestor = null;
             }
         }
     }

@@ -16,13 +16,15 @@ public class Blog {
         }
     }
 
-    public void postArticle(Article article) {
+    public void postArticle(Article article,String blogId) {
         if (article != null) {
-            if (!article.getTitle().equals("")) {
-                if (!article.getContent().equals("")) {
-                    if (!article.getAuthor().equals("")) {
-                        article.setCreatedDateTime();
-                        articles.add(article);
+            if (blogId.equals(this.blogId)) {
+                if (!article.getTitle().equals("")) {
+                    if (!article.getContent().equals("")) {
+                        if (!article.getAuthor().equals("")) {
+                            article.setCreatedDateTime();
+                            articles.add(article);
+                        }
                     }
                 }
             }
