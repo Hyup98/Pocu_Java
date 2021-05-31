@@ -12,6 +12,7 @@ public class Knight extends Gladiator {
     public void removePet() {
         if (pet != null) {
             pet = null;
+            isHavePet = false;
         } else {
             return;
         }
@@ -20,26 +21,19 @@ public class Knight extends Gladiator {
 
     public void setPet(Pet pet) {
         if (pet == null) {
-            if (isHavePet) {
-                this.pet.removeMaster();
-            }
             isHavePet = false;
             this.pet = null;
-        }
-        if (!pet.isHaveMaster()) {
-            if (!isHavePet) {
-                this.pet = pet;
-                pet.setMster(this);
-                isHavePet = true;
-            } else {
-                return;
-            }
         } else {
-            pet.getMaster().isHavePet = false;
-            pet.getMaster().removePet();
-            pet.setMster(this);
-            isHavePet = true;
-            this.pet = pet;
+            if (isHavePet) {
+                if (this.pet.isSame(pet)) {
+                    return;
+                } else {
+                    this.pet = pet;
+                }
+            } else {
+                isHavePet = true;
+                this.pet = pet;
+            }
         }
     }
 
@@ -52,10 +46,10 @@ public class Knight extends Gladiator {
         }
         if (isHavePet) {
             int damage;
-            if (getStr() + pet.getSTR() - enemy.getDef() < 2) {
+            if (getStr() + pet.getStr() - enemy.getDef() < 2) {
                 damage = 1;
             } else {
-                double tem = (double) (getStr() + pet.getSTR() - enemy.getDef()) / 2;
+                double tem = (double) (getStr() + pet.getStr() - enemy.getDef()) / 2;
                 damage = (int) tem;
             }
             if (damage > enemy.getHp()) {
