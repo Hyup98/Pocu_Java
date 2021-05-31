@@ -1,8 +1,8 @@
 package academy.pocu.comp2500.lab5;
 
 public class Pet {
-    private String name;
-    private int STR;
+    private final String name;
+    private final int STR;
     private boolean isHaveMaster;
 
     Pet(String name, int STR) {

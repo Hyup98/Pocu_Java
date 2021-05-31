@@ -3,14 +3,13 @@ package academy.pocu.comp2500.lab5;
 import java.util.ArrayList;
 
 public class Gladiator extends Barbarian {
-    private int powerPoints;
     private int skillCount;
     ArrayList<Move> skill;
 
     Gladiator(String name, int maxHP, int STR, int DEF) {
         super(name, maxHP, STR, DEF);
         skillCount = 0;
-        skill = new ArrayList<Move>();
+        skill = new ArrayList<>();
     }
 
     public void Rest() {
@@ -52,6 +51,9 @@ public class Gladiator extends Barbarian {
     }
 
     public void attack(String moveName, Barbarian enemy) {
+        if(!isAlive()){
+            return;
+        }
         int index = -1;
         for (int i = 0; i < skill.size(); i++) {
             if (skill.get(i).getName().equals(moveName)) {
@@ -75,7 +77,14 @@ public class Gladiator extends Barbarian {
             damage = (int) tem;
         }
 
-        enemy.getDamage(damage);
+        if(damage > enemy.getHp()) {
+            enemy.getDamage(enemy.getHp());
+        }
+        else {
+            enemy.getDamage(damage);
+        }
+
+
 
     }
 

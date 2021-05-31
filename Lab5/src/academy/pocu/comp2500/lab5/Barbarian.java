@@ -1,11 +1,11 @@
 package academy.pocu.comp2500.lab5;
 
 public class Barbarian {
-    private String name;
-    private int maxHP;
+    private final String name;
+    private final int maxHP;
     private int HP;
-    private int STR;
-    private int DEF;
+    private final int STR;
+    private final int DEF;
 
     public Barbarian(String name, int maxHP, int STR, int DEF) {
         this.maxHP = maxHP;
@@ -20,6 +20,9 @@ public class Barbarian {
     }
 
     public void attack(Barbarian enemy) {
+        if(!isAlive()){
+            return;
+        }
         double tem = 0;
         int damage;
         if (STR <= enemy.DEF) {
@@ -28,15 +31,16 @@ public class Barbarian {
             tem = ((double) STR - enemy.DEF) / 2;
             damage = (int) tem;
         }
-        enemy.HP -= damage;
+        if(damage > enemy.HP){
+            enemy.HP = 0;
+        }
+        else {
+            enemy.HP -= damage;
+        }
     }
 
     public boolean isAlive() {
-        if (HP <= 0) {
-            return false;
-        } else {
-            return true;
-        }
+        return HP != 0;
     }
 
     public void addHp() {

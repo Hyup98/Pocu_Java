@@ -24,6 +24,9 @@ public class Knight extends Gladiator {
     }
 
     public void attackTogeter(Barbarian enemy) {
+        if(!isAlive()) {
+            return;
+        }
         if (isHavePet) {
             int damage;
             if (getSTR() + pet.getSTR() - enemy.getDEF() <= 0) {
@@ -32,9 +35,15 @@ public class Knight extends Gladiator {
                 double tem = (double) (getSTR() + pet.getSTR() - enemy.getDEF()) / 2;
                 damage = (int) tem;
             }
+            if(damage > enemy.getHp()){
+                enemy.getDamage(enemy.getHp());
+            }
+            else {
+                enemy.getDamage(damage);
+            }
 
-            enemy.getDamage(damage);
-        } else {
+        }
+        else {
             return;
         }
     }
