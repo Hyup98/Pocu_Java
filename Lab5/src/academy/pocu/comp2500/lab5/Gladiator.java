@@ -51,10 +51,10 @@ public class Gladiator extends Barbarian {
     }
 
     public void attack(String moveName, Barbarian enemy) {
-        if(!isAlive()) {
+        if (!isAlive()) {
             return;
         }
-        if(enemy == this) {
+        if (enemy == this) {
             return;
         }
         int index = -1;

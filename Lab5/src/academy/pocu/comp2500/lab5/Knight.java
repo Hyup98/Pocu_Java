@@ -10,7 +10,7 @@ public class Knight extends Gladiator {
     }
 
     public void removePet() {
-        if(pet != null) {
+        if (pet != null) {
             pet = null;
         } else {
             return;
@@ -19,6 +19,13 @@ public class Knight extends Gladiator {
 
 
     public void setPet(Pet pet) {
+        if(pet == null) {
+            if(isHavePet) {
+                this.pet.removeMaster();
+            }
+            isHavePet = false;
+            this.pet = null;
+        }
         if (!pet.isHaveMaster()) {
             if (!isHavePet) {
                 this.pet = pet;
@@ -28,9 +35,6 @@ public class Knight extends Gladiator {
                 return;
             }
         } else {
-            if (isHavePet) {
-                pet.removeMaster();
-            }
             pet.getMaster().isHavePet = false;
             pet.getMaster().removePet();
             pet.setMster(this);

@@ -20,10 +20,10 @@ public class Barbarian {
     }
 
     public void attack(Barbarian enemy) {
-        if(!isAlive()) {
+        if (!isAlive()) {
             return;
         }
-        if(enemy == this) {
+        if (enemy == this) {
             return;
         }
         double tem = 0;
@@ -34,10 +34,9 @@ public class Barbarian {
             tem = ((double) str - enemy.def) / 2;
             damage = (int) tem;
         }
-        if(damage > enemy.hp) {
+        if (damage > enemy.hp) {
             enemy.hp = 0;
-        }
-        else {
+        } else {
             enemy.hp -= damage;
         }
     }
@@ -47,7 +46,7 @@ public class Barbarian {
     }
 
     public void addHp() {
-        if(hp == maxHP) {
+        if (hp == maxHP) {
             return;
         }
         hp += 10;
