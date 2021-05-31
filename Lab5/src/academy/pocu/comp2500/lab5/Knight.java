@@ -19,8 +19,8 @@ public class Knight extends Gladiator {
 
 
     public void setPet(Pet pet) {
-        if(pet == null) {
-            if(isHavePet) {
+        if (pet == null) {
+            if (isHavePet) {
                 this.pet.removeMaster();
             }
             isHavePet = false;
