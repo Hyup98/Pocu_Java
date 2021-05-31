@@ -45,15 +45,15 @@ public class Barbarian {
         return hp != 0;
     }
 
-    public int getStr() {
+    protected int getStr() {
         return str;
     }
 
-    public int getDef() {
+    protected int getDef() {
         return def;
     }
 
-    public void getDamage(int i) {
+    protected void getDamage(int i) {
         if (i == -1) {
             if (hp == maxHP) {
                 return;
