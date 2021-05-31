@@ -51,7 +51,7 @@ public class Knight extends Gladiator {
         if (isHavePet) {
             int damage;
             if (getSTR() + pet.getSTR() - enemy.getDEF() < 2) {
-                damage = 2;
+                damage = 1;
             } else {
                 double tem = (double) (getSTR() + pet.getSTR() - enemy.getDEF()) / 2;
                 damage = (int) tem;
