@@ -47,6 +47,9 @@ public class Barbarian {
     }
 
     public void addHp() {
+        if(HP == maxHP){
+            return;
+        }
         HP += 10;
     }
 

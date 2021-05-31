@@ -2,6 +2,7 @@ package academy.pocu.comp2500.lab5;
 
 public class Pet {
     private final String name;
+    private Knight master;
     private final int STR;
     private boolean isHaveMaster;
 
@@ -11,8 +12,13 @@ public class Pet {
         isHaveMaster = false;
     }
 
-    public void setMster() {
+    public void setMster(Knight mater) {
         isHaveMaster = true;
+        this.master = mater;
+    }
+
+    public Knight getMaster() {
+        return master;
     }
 
     public boolean isHaveMaster() {
