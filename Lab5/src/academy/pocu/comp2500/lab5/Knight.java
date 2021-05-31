@@ -30,6 +30,9 @@ public class Knight extends Gladiator {
             }
         }
         else {
+            if(isHavePet){
+                pet.removeMaster();
+            }
             pet.getMaster().isHavePet = false;
             pet.getMaster().removePet();
             pet.setMster(this);

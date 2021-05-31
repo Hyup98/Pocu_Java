@@ -16,6 +16,10 @@ public class Pet {
         isHaveMaster = true;
         this.master = mater;
     }
+    public void removeMaster(){
+        master = null;
+        isHaveMaster = false;
+    }
 
     public Knight getMaster() {
         return master;
