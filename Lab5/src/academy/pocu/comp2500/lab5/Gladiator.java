@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Gladiator extends Barbarian {
     private int skillCount;
-    ArrayList<Move> skill;
+    private ArrayList<Move> skill;
 
     public Gladiator(String name, int maxHP, int str, int def) {
         super(name, maxHP, str, def);
