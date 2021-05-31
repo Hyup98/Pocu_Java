@@ -23,6 +23,9 @@ public class Barbarian {
         if(!isAlive()){
             return;
         }
+        if(enemy == this){
+            return;
+        }
         double tem = 0;
         int damage;
         if (STR <= enemy.DEF) {

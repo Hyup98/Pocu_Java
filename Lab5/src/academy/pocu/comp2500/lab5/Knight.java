@@ -4,7 +4,7 @@ public class Knight extends Gladiator {
     private boolean isHavePet;
     private Pet pet;
 
-    Knight(String name, int maxHP, int STR, int DEF) {
+    public Knight(String name, int maxHP, int STR, int DEF) {
         super(name, maxHP, STR, DEF);
         isHavePet = false;
     }
@@ -23,8 +23,11 @@ public class Knight extends Gladiator {
         }
     }
 
-    public void attackTogeter(Barbarian enemy) {
+    public void attackTogether(Barbarian enemy) {
         if(!isAlive()) {
+            return;
+        }
+        if(enemy == this){
             return;
         }
         if (isHavePet) {

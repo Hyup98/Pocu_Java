@@ -6,7 +6,7 @@ public class Move {
     private final int skillPower;
     private final int maxUseCount;
 
-    Move(String skill, int skillPower, int maxUseCount) {
+    public Move(String skill, int skillPower, int maxUseCount) {
         name = skill;
         this.maxUseCount = maxUseCount;
         this.skillPower = skillPower;

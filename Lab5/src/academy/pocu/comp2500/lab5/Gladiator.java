@@ -6,13 +6,13 @@ public class Gladiator extends Barbarian {
     private int skillCount;
     ArrayList<Move> skill;
 
-    Gladiator(String name, int maxHP, int STR, int DEF) {
+    public Gladiator(String name, int maxHP, int STR, int DEF) {
         super(name, maxHP, STR, DEF);
         skillCount = 0;
         skill = new ArrayList<>();
     }
 
-    public void Rest() {
+    public void rest() {
         addHp();
         for (int i = 0; i < skill.size(); i++) {
             skill.get(i).restSkill();
@@ -40,9 +40,9 @@ public class Gladiator extends Barbarian {
         }
     }
 
-    public boolean removeMove(Move move) {
+    public boolean removeMove(String name) {
         for (int i = 0; i < skill.size(); i++) {
-            if (skill.get(i).getName().equals(move.getName())) {
+            if (skill.get(i).getName().equals(name)) {
                 skill.remove(i);
                 return true;
             }
@@ -52,6 +52,9 @@ public class Gladiator extends Barbarian {
 
     public void attack(String moveName, Barbarian enemy) {
         if(!isAlive()){
+            return;
+        }
+        if(enemy == this){
             return;
         }
         int index = -1;

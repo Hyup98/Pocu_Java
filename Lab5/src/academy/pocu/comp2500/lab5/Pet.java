@@ -5,7 +5,7 @@ public class Pet {
     private final int STR;
     private boolean isHaveMaster;
 
-    Pet(String name, int STR) {
+    public Pet(String name, int STR) {
         this.name = name;
         this.STR = STR;
         isHaveMaster = false;
