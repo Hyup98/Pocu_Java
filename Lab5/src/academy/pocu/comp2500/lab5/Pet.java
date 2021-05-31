@@ -21,7 +21,7 @@ public class Pet {
         if (str == other.str) {
             answer = true;
         }
-        return  answer;
+        return answer;
     }
 
 }
