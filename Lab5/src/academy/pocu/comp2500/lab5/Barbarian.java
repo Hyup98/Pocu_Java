@@ -3,65 +3,65 @@ package academy.pocu.comp2500.lab5;
 public class Barbarian {
     private final String name;
     private final int maxHP;
-    private int HP;
-    private final int STR;
-    private final int DEF;
+    private int hp;
+    private final int str;
+    private final int def;
 
-    public Barbarian(String name, int maxHP, int STR, int DEF) {
+    public Barbarian(String name, int maxHP, int str, int def) {
         this.maxHP = maxHP;
         this.name = name;
-        this.STR = STR;
-        this.DEF = DEF;
-        HP = maxHP;
+        this.str = str;
+        this.def = def;
+        hp = maxHP;
     }
 
     public int getHp() {
-        return HP;
+        return hp;
     }
 
     public void attack(Barbarian enemy) {
-        if(!isAlive()){
+        if(!isAlive()) {
             return;
         }
-        if(enemy == this){
+        if(enemy == this) {
             return;
         }
         double tem = 0;
         int damage;
-        if (STR <= enemy.DEF) {
+        if (str <= enemy.def) {
             damage = 1;
         } else {
-            tem = ((double) STR - enemy.DEF) / 2;
+            tem = ((double) str - enemy.def) / 2;
             damage = (int) tem;
         }
-        if(damage > enemy.HP){
-            enemy.HP = 0;
+        if(damage > enemy.hp) {
+            enemy.hp = 0;
         }
         else {
-            enemy.HP -= damage;
+            enemy.hp -= damage;
         }
     }
 
     public boolean isAlive() {
-        return HP != 0;
+        return hp != 0;
     }
 
     public void addHp() {
-        if(HP == maxHP){
+        if(hp == maxHP) {
             return;
         }
-        HP += 10;
+        hp += 10;
     }
 
-    public int getSTR() {
-        return STR;
+    public int getStr() {
+        return str;
     }
 
-    public int getDEF() {
-        return DEF;
+    public int getDef() {
+        return def;
     }
 
     public void getDamage(int i) {
-        HP -= i;
+        hp -= i;
     }
 }

@@ -4,16 +4,15 @@ public class Knight extends Gladiator {
     private boolean isHavePet;
     private Pet pet;
 
-    public Knight(String name, int maxHP, int STR, int DEF) {
-        super(name, maxHP, STR, DEF);
+    public Knight(String name, int maxHP, int str, int def) {
+        super(name, maxHP, str, def);
         isHavePet = false;
     }
 
-    public void removePet(){
-        if(pet != null){
+    public void removePet() {
+        if(pet != null) {
             pet = null;
-        }
-        else {
+        } else {
             return;
         }
     }
@@ -28,9 +27,8 @@ public class Knight extends Gladiator {
             } else {
                 return;
             }
-        }
-        else {
-            if(isHavePet){
+        } else {
+            if (isHavePet) {
                 pet.removeMaster();
             }
             pet.getMaster().isHavePet = false;
@@ -42,29 +40,27 @@ public class Knight extends Gladiator {
     }
 
     public void attackTogether(Barbarian enemy) {
-        if(!isAlive()) {
+        if (!isAlive()) {
             return;
         }
-        if(enemy == this){
+        if (enemy == this) {
             return;
         }
         if (isHavePet) {
             int damage;
-            if (getSTR() + pet.getSTR() - enemy.getDEF() < 2) {
+            if (getStr() + pet.getSTR() - enemy.getDef() < 2) {
                 damage = 1;
             } else {
-                double tem = (double) (getSTR() + pet.getSTR() - enemy.getDEF()) / 2;
+                double tem = (double) (getStr() + pet.getSTR() - enemy.getDef()) / 2;
                 damage = (int) tem;
             }
-            if(damage > enemy.getHp()){
+            if (damage > enemy.getHp()) {
                 enemy.getDamage(enemy.getHp());
-            }
-            else {
+            } else {
                 enemy.getDamage(damage);
             }
 
-        }
-        else {
+        } else {
             return;
         }
     }

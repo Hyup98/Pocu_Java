@@ -3,12 +3,12 @@ package academy.pocu.comp2500.lab5;
 public class Pet {
     private final String name;
     private Knight master;
-    private final int STR;
+    private final int str;
     private boolean isHaveMaster;
 
-    public Pet(String name, int STR) {
+    public Pet(String name, int str) {
         this.name = name;
-        this.STR = STR;
+        this.str = str;
         isHaveMaster = false;
     }
 
@@ -30,6 +30,6 @@ public class Pet {
     }
 
     public int getSTR() {
-        return STR;
+        return str;
     }
 }
