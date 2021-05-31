@@ -45,13 +45,6 @@ public class Barbarian {
         return hp != 0;
     }
 
-    public void addHp() {
-        if (hp == maxHP) {
-            return;
-        }
-        hp += 10;
-    }
-
     public int getStr() {
         return str;
     }
@@ -61,6 +54,13 @@ public class Barbarian {
     }
 
     public void getDamage(int i) {
-        hp -= i;
+        if (i == -1) {
+            if (hp == maxHP) {
+                return;
+            }
+            hp += 10;
+        } else {
+            hp -= i;
+        }
     }
 }

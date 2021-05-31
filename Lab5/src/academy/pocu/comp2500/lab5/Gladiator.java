@@ -13,7 +13,7 @@ public class Gladiator extends Barbarian {
     }
 
     public void rest() {
-        addHp();
+        getDamage(-1);
         for (int i = 0; i < skill.size(); i++) {
             skill.get(i).restSkill();
         }
@@ -51,7 +51,7 @@ public class Gladiator extends Barbarian {
     }
 
     public void attack(String moveName, Barbarian enemy) {
-        if (!isAlive()) {
+        if (getHp() <= 0) {
             return;
         }
         if (enemy == this) {
