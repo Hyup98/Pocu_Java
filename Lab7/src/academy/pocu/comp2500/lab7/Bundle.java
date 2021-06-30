@@ -4,30 +4,29 @@ import java.util.HashSet;
 import java.util.Iterator;
 
 public class Bundle {
+    private final int MAXSIZE = 4;
     private HashSet<Book> books = new HashSet<>();
     private String bundleName;
-    private final int MAXSIZE = 4;
 
     public Bundle(String bundleName) {
         this.bundleName = bundleName;
     }
 
     public boolean add(Book book) {
-        if(books.size() == 4) {
+        if (books.size() == 4) {
             return false;
         }
         Iterator<Book> iter = books.iterator();
         boolean bIspossible = true;
-        while(iter.hasNext()) {
-            if(iter.next().equals(book)){
+        while (iter.hasNext()) {
+            if (iter.next().equals(book)) {
                 bIspossible = false;
             }
         }
-        if(bIspossible){
+        if (bIspossible) {
             books.add(book);
             return bIspossible;
-        }
-        else {
+        } else {
             return bIspossible;
         }
     }
@@ -35,8 +34,8 @@ public class Bundle {
     public boolean remove(Book book) {
         Iterator<Book> iter = books.iterator();
         boolean bIspossible = false;
-        while(iter.hasNext()) {
-            if(iter.next().equals(book)){
+        while (iter.hasNext()) {
+            if (iter.next().equals(book)) {
                 bIspossible = true;
                 books.remove(book);
                 break;
@@ -46,22 +45,22 @@ public class Bundle {
     }
 
     public boolean equals(Bundle other) {
-        if(this == other) {
+        if (this == other) {
             return true;
         }
 
         Iterator<Book> iter = books.iterator();
         boolean bIspossible = true;
-        while(iter.hasNext()) {
-           if(!other.books.contains(iter.next())) {
-               bIspossible = false;
-           }
+        while (iter.hasNext()) {
+            if (!other.books.contains(iter.next())) {
+                bIspossible = false;
+            }
         }
         return bIspossible;
     }
 
     public int hashCode() {
-        return books.hashCode()^(bundleName.hashCode() << books.size());
+        return books.hashCode() ^ (bundleName.hashCode() << books.size());
     }
 
 }

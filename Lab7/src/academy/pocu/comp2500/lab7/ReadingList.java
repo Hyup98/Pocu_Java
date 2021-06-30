@@ -3,10 +3,10 @@ package academy.pocu.comp2500.lab7;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class ReadingList
-{
+public class ReadingList {
     private ArrayList<String> readedBooks = new ArrayList<>();
     private String listName;
+
     public ReadingList(String listName) {
         this.listName = listName;
     }
@@ -15,9 +15,10 @@ public class ReadingList
         readedBooks.add(book.toString());
         return;
     }
+
     public boolean remove(Book book) {
-        for(int i = 0; i< readedBooks.size(); i++) {
-            if(readedBooks.get(i).equals(book.toString())) {
+        for (int i = 0; i < readedBooks.size(); i++) {
+            if (readedBooks.get(i).equals(book.toString())) {
                 readedBooks.remove(i);
                 return true;
             }
@@ -26,13 +27,13 @@ public class ReadingList
     }
 
     public boolean equals(ReadingList other) {
-        if(other == this) {
+        if (other == this) {
             return true;
         }
 
         boolean bIsSame = true;
-        for(int i = 0; i< readedBooks.size(); i++){
-            if(!other.readedBooks.contains(readedBooks.get(i))) {
+        for (int i = 0; i < readedBooks.size(); i++) {
+            if (!other.readedBooks.contains(readedBooks.get(i))) {
                 bIsSame = false;
             }
         }

@@ -1,11 +1,6 @@
 package academy.pocu.comp2500.lab7.app;
 
-import academy.pocu.comp2500.lab7.Author;
-import academy.pocu.comp2500.lab7.Book;
-import academy.pocu.comp2500.lab7.Bookshelf;
-import academy.pocu.comp2500.lab7.Bundle;
-import academy.pocu.comp2500.lab7.Genre;
-import academy.pocu.comp2500.lab7.ReadingList;
+import academy.pocu.comp2500.lab7.*;
 
 public class Program {
 
