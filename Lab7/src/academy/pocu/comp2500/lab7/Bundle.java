@@ -49,6 +49,10 @@ public class Bundle {
             return true;
         }
 
+        if(other == null || !(other instanceof Bundle)) {
+            return false;
+        }
+
         Iterator<Book> iter = books.iterator();
         boolean bIspossible = true;
         while (iter.hasNext()) {

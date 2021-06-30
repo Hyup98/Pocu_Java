@@ -12,7 +12,7 @@ public class Bookshelf {
     }
 
     public boolean add(Book book) {
-        if (booksCount == books.size()) {
+        if (booksCount > books.size()) {
             return false;
         } else {
             books.add(book);
@@ -35,6 +35,10 @@ public class Bookshelf {
             return true;
         }
         if (booksCount != other.booksCount) {
+            return false;
+        }
+
+        if(other == null || !(other instanceof Bookshelf)) {
             return false;
         }
         boolean bIsSame = true;

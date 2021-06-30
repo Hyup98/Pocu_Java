@@ -31,6 +31,10 @@ public class ReadingList {
             return true;
         }
 
+        if(other == null || !(other instanceof ReadingList)) {
+            return false;
+        }
+
         boolean bIsSame = true;
         for (int i = 0; i < readedBooks.size(); i++) {
             if (!other.readedBooks.contains(readedBooks.get(i))) {
@@ -40,7 +44,6 @@ public class ReadingList {
         return bIsSame;
     }
 
-    @Override
     public int hashCode() {
         return Objects.hash(readedBooks, listName) ^ (readedBooks.size());
     }

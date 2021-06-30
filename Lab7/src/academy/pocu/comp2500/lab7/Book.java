@@ -15,12 +15,16 @@ public class Book {
     }
 
     public String toString() {
-        return String.format("%s [%S]", this.bookName, this.author.toString());
+        return String.format("%s [%s]", this.bookName, this.author.toString());
     }
 
     public boolean equals(Book other) {
         if (other == this) {
             return true;
+        }
+
+        if(other == null || !(other instanceof Book)) {
+            return false;
         }
 
         boolean bIsSame = true;
@@ -34,7 +38,7 @@ public class Book {
         if (publishingYear != other.publishingYear) {
             bIsSame = false;
         }
-        if (other.genre != genre) {
+        if (other.genre.getValue() != genre.getValue()) {
             bIsSame = false;
         }
 
@@ -43,19 +47,7 @@ public class Book {
 
     public int hashCode() {
         int tem = this.author.hashCode() ^ (this.bookName.hashCode() << this.publishingYear);
-        if (genre == Genre.SCIENCEFICTION) {
-            tem += 1;
-        } else if (genre == Genre.BIOGRAPHY) {
-            tem += 2;
-        } else if (genre == Genre.FANTASY) {
-            tem += 3;
-        } else if (genre == Genre.MYSTERY) {
-            tem += 4;
-        } else if (genre == Genre.ROMANCE) {
-            tem += 5;
-        } else if (genre == Genre.SUSPENSE) {
-            tem += 6;
-        }
+        tem += genre.getValue();
         return tem;
     }
 

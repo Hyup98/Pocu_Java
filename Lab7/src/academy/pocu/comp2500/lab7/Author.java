@@ -14,6 +14,10 @@ public class Author {
             return true;
         }
 
+        if(other == null || !(other instanceof Author)) {
+            return false;
+        }
+
         if (other.firstName.equals(firstName)) {
             if (other.lastName.equals(lastName)) {
                 return true;
