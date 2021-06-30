@@ -9,6 +9,7 @@ public enum Genre {
     SUSPENSE(6);
 
     private final int value;
+
     Genre(int value) {
         this.value = value;
 

@@ -49,7 +49,7 @@ public class Bundle {
             return true;
         }
 
-        if(other == null || !(other instanceof Bundle)) {
+        if (other == null || !(other instanceof Bundle)) {
             return false;
         }
 

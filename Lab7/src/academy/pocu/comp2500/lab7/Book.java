@@ -23,7 +23,7 @@ public class Book {
             return true;
         }
 
-        if(other == null || !(other instanceof Book)) {
+        if (other == null || !(other instanceof Book)) {
             return false;
         }
 

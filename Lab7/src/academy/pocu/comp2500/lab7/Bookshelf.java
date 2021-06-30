@@ -38,7 +38,7 @@ public class Bookshelf {
             return false;
         }
 
-        if(other == null || !(other instanceof Bookshelf)) {
+        if (other == null || !(other instanceof Bookshelf)) {
             return false;
         }
         boolean bIsSame = true;

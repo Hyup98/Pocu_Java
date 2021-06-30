@@ -14,7 +14,7 @@ public class Author {
             return true;
         }
 
-        if(other == null || !(other instanceof Author)) {
+        if (other == null || !(other instanceof Author)) {
             return false;
         }
 

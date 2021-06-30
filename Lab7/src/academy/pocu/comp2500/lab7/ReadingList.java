@@ -31,7 +31,7 @@ public class ReadingList {
             return true;
         }
 
-        if(other == null || !(other instanceof ReadingList)) {
+        if (other == null || !(other instanceof ReadingList)) {
             return false;
         }
 
