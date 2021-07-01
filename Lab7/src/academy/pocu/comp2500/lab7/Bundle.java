@@ -67,7 +67,14 @@ public class Bundle {
     }
 
     public int hashCode() {
-        return books.hashCode() ^ (bundleName.hashCode() << books.size());
+        int tem = 0;
+        Iterator<Book> iter = books.iterator();
+        while (iter.hasNext()) {
+            tem += iter.next().hashCode();
+        }
+        tem += bundleName.hashCode();
+        return tem;
     }
+
 
 }

@@ -1,7 +1,6 @@
 package academy.pocu.comp2500.lab7;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class ReadingList {
     private ArrayList<Book> readedBooks = new ArrayList<>();
@@ -58,6 +57,11 @@ public class ReadingList {
     }
 
     public int hashCode() {
-        return Objects.hash(readedBooks, listName) ^ (readedBooks.size());
+        int tem = 0;
+        for (int i = 0; i < readedBooks.size(); i++) {
+            tem += readedBooks.get(i).hashCode();
+        }
+        tem += listName.hashCode();
+        return tem;
     }
 }
