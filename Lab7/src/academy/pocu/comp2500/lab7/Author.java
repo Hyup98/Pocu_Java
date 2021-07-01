@@ -17,8 +17,11 @@ public class Author {
         if (other == null || !(other instanceof Author)) {
             return false;
         }
-        if (other.firstName.equals(firstName)) {
-            if (other.lastName.equals(lastName)) {
+
+        Author a = (Author) other;
+
+        if (a.firstName.equals(firstName)) {
+            if (a.lastName.equals(lastName)) {
                 return true;
             }
         }
