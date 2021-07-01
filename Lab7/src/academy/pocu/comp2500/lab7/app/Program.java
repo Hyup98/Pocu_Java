@@ -114,10 +114,10 @@ public class Program {
             System.out.print(format);
 
             System.out.print(readingList1.toString());
-            //assert (readingList1.toString().equals(format));
-           // assert (readingList2.toString().equals(format));
-           // assert (readingList3.toString().equals(format));
-//            assert (readingList1.toString().equals(readingList3.toString()));
+            assert (readingList1.toString().equals(format));
+            assert (readingList2.toString().equals(format));
+            assert (readingList3.toString().equals(format));
+            assert (readingList1.toString().equals(readingList3.toString()));
 
             assert (readingList1.equals(readingList2));
             assert (readingList2.equals(readingList1));

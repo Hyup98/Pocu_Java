@@ -34,10 +34,9 @@ public class ReadingList {
         if (other == null || !(other instanceof ReadingList)) {
             return false;
         }
-        if(!this.listName.equals(other.listName)) {
+        if (!this.listName.equals(other.listName)) {
             return false;
         }
-
 
 
         boolean bIsSame = true;
@@ -51,9 +50,9 @@ public class ReadingList {
 
     public String toString() {
         String tem = "";
-        for(int i = 0; i < readedBooks.size(); i++) {
-            tem += String.format("%d. %s",i+1,this.readedBooks.get(i).toString());
-            tem += "\n";
+        for (int i = 0; i < readedBooks.size(); i++) {
+            tem += String.format("%d. %s", i + 1, this.readedBooks.get(i).toString());
+            tem += System.lineSeparator();
         }
         return tem;
     }

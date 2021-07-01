@@ -1,7 +1,6 @@
 package academy.pocu.comp2500.lab7;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class Bookshelf {
     private int booksCount;
@@ -41,7 +40,7 @@ public class Bookshelf {
         if (other == null || !(other instanceof Bookshelf)) {
             return false;
         }
-        if(other.books.size() == 0){
+        if (other.books.size() == 0) {
             return false;
         }
         boolean bIsSame = true;
@@ -55,7 +54,7 @@ public class Bookshelf {
 
     public int hashCode() {
         int tem = 0;
-        for(int i = 0; i < books.size(); i++) {
+        for (int i = 0; i < books.size(); i++) {
             tem += books.get(i).hashCode() ^ i;
         }
 
