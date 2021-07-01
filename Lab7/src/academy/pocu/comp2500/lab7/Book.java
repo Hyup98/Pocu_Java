@@ -22,7 +22,7 @@ public class Book {
         if (other == this) {
             return true;
         }
-        if(publishingYear != other.publishingYear) {
+        if (publishingYear != other.publishingYear) {
             return false;
         }
 
