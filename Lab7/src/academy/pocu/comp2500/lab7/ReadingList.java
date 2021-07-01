@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class ReadingList {
-    private ArrayList<String> readedBooks = new ArrayList<>();
+    private ArrayList<Book> readedBooks = new ArrayList<>();
     private String listName;
 
     public ReadingList(String listName) {
@@ -12,13 +12,13 @@ public class ReadingList {
     }
 
     public void add(Book book) {
-        readedBooks.add(book.toString());
+        readedBooks.add(book);
         return;
     }
 
     public boolean remove(Book book) {
         for (int i = 0; i < readedBooks.size(); i++) {
-            if (readedBooks.get(i).equals(book.toString())) {
+            if (readedBooks.get(i).equals(book)) {
                 readedBooks.remove(i);
                 return true;
             }

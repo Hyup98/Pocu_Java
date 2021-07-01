@@ -6,6 +6,5 @@ public enum Genre {
     BIOGRAPHY,
     FANTASY,
     MYSTERY,
-    SUSPENSE;
-
+    SUSPENSE
 }
