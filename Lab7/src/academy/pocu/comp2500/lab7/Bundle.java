@@ -52,6 +52,9 @@ public class Bundle {
         if (other == null || !(other instanceof Bundle)) {
             return false;
         }
+        if(!this.bundleName.equals(other.bundleName)) {
+            return false;
+        }
 
         Iterator<Book> iter = books.iterator();
         boolean bIspossible = true;

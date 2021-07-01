@@ -34,6 +34,11 @@ public class ReadingList {
         if (other == null || !(other instanceof ReadingList)) {
             return false;
         }
+        if(!this.listName.equals(other.listName)) {
+            return false;
+        }
+
+
 
         boolean bIsSame = true;
         for (int i = 0; i < readedBooks.size(); i++) {
@@ -42,6 +47,15 @@ public class ReadingList {
             }
         }
         return bIsSame;
+    }
+
+    public String toString() {
+        String tem = "";
+        for(int i = 0; i < readedBooks.size(); i++) {
+            tem += String.format("%d. %s",i+1,this.readedBooks.get(i).toString());
+            tem += "\n";
+        }
+        return tem;
     }
 
     public int hashCode() {

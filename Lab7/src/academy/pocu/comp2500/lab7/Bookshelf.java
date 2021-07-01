@@ -41,8 +41,10 @@ public class Bookshelf {
         if (other == null || !(other instanceof Bookshelf)) {
             return false;
         }
+        if(other.books.size() == 0){
+            return false;
+        }
         boolean bIsSame = true;
-
         for (int i = 0; i < books.size(); i++) {
             if (!books.contains(other.books.get(i))) {
                 bIsSame = false;
@@ -52,6 +54,13 @@ public class Bookshelf {
     }
 
     public int hashCode() {
-        return Objects.hash(booksCount, books) ^ books.size();
+        int tem = 0;
+        for(int i = 0; i < books.size(); i++) {
+            tem += books.get(i).hashCode() ^ i;
+        }
+
+        tem += System.identityHashCode(this);
+
+        return tem;
     }
 }
