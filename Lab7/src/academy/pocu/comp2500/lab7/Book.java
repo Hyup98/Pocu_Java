@@ -38,7 +38,7 @@ public class Book {
         if (publishingYear != other.publishingYear) {
             bIsSame = false;
         }
-        if (other.genre.getValue() != genre.getValue()) {
+        if (other.genre != genre) {
             bIsSame = false;
         }
 
@@ -47,7 +47,6 @@ public class Book {
 
     public int hashCode() {
         int tem = this.author.hashCode() ^ (this.bookName.hashCode() << this.publishingYear);
-        tem += genre.getValue();
         return tem;
     }
 
