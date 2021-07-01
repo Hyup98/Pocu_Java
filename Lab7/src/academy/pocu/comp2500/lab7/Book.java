@@ -22,6 +22,9 @@ public class Book {
         if (other == this) {
             return true;
         }
+        if(publishingYear != other.publishingYear) {
+            return false;
+        }
 
         if (other == null || !(other instanceof Book)) {
             return false;
