@@ -18,10 +18,8 @@ public class Author {
             return false;
         }
 
-        Author a = (Author) other;
-
-        if (a.firstName.equals(firstName)) {
-            if (a.lastName.equals(lastName)) {
+        if (other.firstName.equals(firstName)) {
+            if (other.lastName.equals(lastName)) {
                 return true;
             }
         }
@@ -33,7 +31,8 @@ public class Author {
     }
 
     public int hashCode() {
-        return this.firstName.hashCode() ^ (this.lastName.hashCode() << 16);
+        int tem = this.firstName.hashCode() ^ (this.lastName.hashCode() << 16);
+        return tem;
     }
 
 }

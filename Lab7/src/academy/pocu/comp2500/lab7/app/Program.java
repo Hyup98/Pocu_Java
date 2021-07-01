@@ -2,6 +2,8 @@ package academy.pocu.comp2500.lab7.app;
 
 import academy.pocu.comp2500.lab7.*;
 
+import java.util.HashSet;
+
 public class Program {
 
     public static void main(String[] args) {
@@ -11,6 +13,8 @@ public class Program {
              */
 
             // Author test
+
+
             Author author1 = new Author("same", "author");
             Author author2 = new Author("same", "author");
             Author author3 = new Author("diff", "author");
@@ -28,6 +32,13 @@ public class Program {
 
             assert (author1.hashCode() == author2.hashCode());
             assert (author1.hashCode() != author3.hashCode());
+
+            HashSet<Author> tem = new HashSet<>();
+            tem.add(author1);
+            tem.add(author2);
+            //System.out.print();
+            //System.out.print();
+            System.out.print(tem.add(author3));
 
             // Book test
             Book book1 = new Book("same book", author1, 2020, Genre.ROMANCE);
