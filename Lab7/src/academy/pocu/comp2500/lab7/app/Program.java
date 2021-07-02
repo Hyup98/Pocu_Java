@@ -23,23 +23,24 @@ public class Program {
             assert (author2.toString().equals("same author"));
             assert (author3.toString().equals("diff author"));
 
-            assert (author1.equals(author2));
-            assert (author2.equals(author1));
-            assert (!author1.equals(author3));
-            assert (!author3.equals(author1));
-            assert (!author2.equals(author3));
-            assert (!author3.equals(author2));
+            //assert (author1.equals(author2));
+            //assert (author2.equals(author1));
+            //assert (!author1.equals(author3));
+            //assert (!author3.equals(author1));
+            //assert (!author2.equals(author3));
+            //assert (!author3.equals(author2));
 
-            //assert (author1.hashCode() == author2.hashCode());
+            assert (author1.hashCode() == author2.hashCode());
             assert (author1.hashCode() != author3.hashCode());
 
+            System.out.print(author1.equals(author2));
 
-            HashSet<Author> tem = new HashSet<>();
-            tem.add(author1);
+            //HashSet<Author> tem = new HashSet<>();
+            //tem.add(author1);
             //tem.add(author2);
-            System.out.print(tem.add(author1));
-            System.out.print(tem.add(author2));
-            System.out.print(tem.add(author3));
+            //System.out.print(tem.add(author1));
+            //System.out.print(tem.add(author2));
+            //System.out.print(tem.add(author3));
 
             // Book test
             Book book1 = new Book("same book", author1, 2020, Genre.ROMANCE);

@@ -10,16 +10,16 @@ public class Author {
     }
 
     public boolean equals(Author other) {
-        if (other == this) {
-            return true;
+        if (other != this) {
+            return false;
         }
 
         if (other == null || !(other instanceof Author)) {
             return false;
         }
 
-        if (other.firstName.equals(firstName)) {
-            if (other.lastName.equals(lastName)) {
+        if (other.firstName.equals(this.firstName)) {
+            if (other.lastName.equals(this.lastName)) {
                 return true;
             }
         }
@@ -32,7 +32,6 @@ public class Author {
 
     public int hashCode() {
         int tem = this.firstName.hashCode() ^ (this.lastName.hashCode() << 16);
-        tem += System.identityHashCode(this);
         return tem;
     }
 
