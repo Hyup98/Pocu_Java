@@ -32,6 +32,7 @@ public class Author {
 
     public int hashCode() {
         int tem = this.firstName.hashCode() ^ (this.lastName.hashCode() << 16);
+        tem += System.identityHashCode(this);
         return tem;
     }
 

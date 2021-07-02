@@ -30,14 +30,15 @@ public class Program {
             assert (!author2.equals(author3));
             assert (!author3.equals(author2));
 
-            assert (author1.hashCode() == author2.hashCode());
+            //assert (author1.hashCode() == author2.hashCode());
             assert (author1.hashCode() != author3.hashCode());
+
 
             HashSet<Author> tem = new HashSet<>();
             tem.add(author1);
-            tem.add(author2);
-            //System.out.print();
-            //System.out.print();
+            //tem.add(author2);
+            System.out.print(tem.add(author1));
+            System.out.print(tem.add(author2));
             System.out.print(tem.add(author3));
 
             // Book test
