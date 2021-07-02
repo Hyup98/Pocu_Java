@@ -23,7 +23,7 @@ public class Program {
             assert (author2.toString().equals("same author"));
             assert (author3.toString().equals("diff author"));
 
-            //assert (author1.equals(author2));
+            assert (author1.equals(author2));
             //assert (author2.equals(author1));
             //assert (!author1.equals(author3));
             //assert (!author3.equals(author1));

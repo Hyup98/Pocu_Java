@@ -10,7 +10,10 @@ public class Author {
     }
 
     public boolean equals(Author other) {
-        if (other != this) {
+        if (other == this) {
+            return true;
+        }
+        if(other.hashCode() != this.hashCode()) {
             return false;
         }
 
