@@ -57,11 +57,6 @@ public class ReadingList {
     }
 
     public int hashCode() {
-        int tem = 0;
-        for (int i = 0; i < readedBooks.size(); i++) {
-            tem += readedBooks.get(i).hashCode();
-        }
-        tem += listName.hashCode();
-        return tem;
+        return readedBooks.hashCode() + listName.hashCode();
     }
 }

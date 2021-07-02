@@ -67,9 +67,6 @@ public class Bundle {
     }
 
     public int hashCode() {
-        int tem = 0;
-        tem += books.hashCode();
-        tem += bundleName.hashCode();
-        return tem;
+        return bundleName.hashCode() + books.hashCode();
     }
 }

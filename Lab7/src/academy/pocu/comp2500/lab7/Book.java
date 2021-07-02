@@ -49,10 +49,7 @@ public class Book {
     }
 
     public int hashCode() {
-        int tem = this.author.hashCode();
-        tem += bookName.hashCode();
-        tem += publishingYear * 11;
-        return tem;
+        return author.hashCode() + bookName.hashCode() + publishingYear * 31;
     }
 
 
