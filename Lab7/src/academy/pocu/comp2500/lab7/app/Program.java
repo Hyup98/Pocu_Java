@@ -18,12 +18,15 @@ public class Program {
             Author author1 = new Author("same", "author");
             Author author2 = new Author("same", "author");
             Author author3 = new Author("diff", "author");
+            Author author4 = author1;
 
             assert (author1.toString().equals("same author"));
             assert (author2.toString().equals("same author"));
             assert (author3.toString().equals("diff author"));
 
             assert (author1.equals(author2));
+            assert (!author1.equals(author3));
+            assert (author1.equals(author4));
             //assert (author2.equals(author1));
             //assert (!author1.equals(author3));
             //assert (!author3.equals(author1));
