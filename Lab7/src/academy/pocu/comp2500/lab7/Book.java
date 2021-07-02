@@ -30,18 +30,20 @@ public class Book {
             return false;
         }
 
+        Book tem = (Book) other;
+
         boolean bIsSame = true;
 
-        if (!bookName.equals(other.bookName)) {
+        if (!bookName.equals(tem.bookName)) {
             bIsSame = false;
         }
-        if (!author.toString().equals(other.author.toString())) {
+        if (!author.toString().equals(tem.author.toString())) {
             bIsSame = false;
         }
-        if (publishingYear != other.publishingYear) {
+        if (publishingYear != tem.publishingYear) {
             bIsSame = false;
         }
-        if (other.genre != genre) {
+        if (tem.genre != genre) {
             bIsSame = false;
         }
 

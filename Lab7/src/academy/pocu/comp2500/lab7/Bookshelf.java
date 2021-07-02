@@ -11,10 +11,11 @@ public class Bookshelf {
     }
 
     public boolean add(Book book) {
-        if (booksCount > books.size()) {
+        if (booksCount == books.size()) {
             return false;
         } else {
-            books.add(book);
+            Book tem = book;
+            books.add(tem);
             return true;
         }
     }
@@ -43,6 +44,7 @@ public class Bookshelf {
         if (other.books.size() == 0) {
             return false;
         }
+
         boolean bIsSame = true;
         for (int i = 0; i < books.size(); i++) {
             if (!books.contains(other.books.get(i))) {

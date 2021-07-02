@@ -11,7 +11,8 @@ public class ReadingList {
     }
 
     public void add(Book book) {
-        readedBooks.add(book);
+        Book tem = book;
+        readedBooks.add(tem);
         return;
     }
 
