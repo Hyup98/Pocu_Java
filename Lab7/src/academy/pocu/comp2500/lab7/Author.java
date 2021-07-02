@@ -13,11 +13,8 @@ public class Author {
         if (other == this) {
             return true;
         }
-        if(other.hashCode() != this.hashCode()) {
-            return false;
-        }
 
-        if (other == null || !(other instanceof Author)) {
+        if (other == null || !(other instanceof Author) || this.hashCode() != other.hashCode()) {
             return false;
         }
 

@@ -54,10 +54,7 @@ public class Bookshelf {
 
     public int hashCode() {
         int tem = 0;
-        for (int i = 0; i < books.size(); i++) {
-            tem += books.get(i).hashCode() ^ i;
-        }
-
+        tem += books.hashCode();
         tem += System.identityHashCode(this);
 
         return tem;
