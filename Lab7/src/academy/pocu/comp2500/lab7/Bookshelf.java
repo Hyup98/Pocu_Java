@@ -38,6 +38,9 @@ public class Bookshelf {
         if (other == null || !(other instanceof Bookshelf)) {
             return false;
         }
+        if (System.identityHashCode(this) == System.identityHashCode(other)) {
+            return true;
+        }
 
         Bookshelf tem = (Bookshelf) other;
 
@@ -66,6 +69,7 @@ public class Bookshelf {
     public int hashCode() {
         int tem = booksCount;
         tem += books.hashCode();
+        tem += System.identityHashCode(this);
         return tem;
     }
 }
