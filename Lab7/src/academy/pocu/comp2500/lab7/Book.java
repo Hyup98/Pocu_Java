@@ -28,7 +28,7 @@ public class Book {
             return false;
         }
 
-        Book tem = (Book)other;
+        Book tem = (Book) other;
 
         if (publishingYear != tem.publishingYear) {
             return false;
