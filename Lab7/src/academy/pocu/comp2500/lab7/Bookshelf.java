@@ -44,8 +44,15 @@ public class Bookshelf {
         if (booksCount != tem.booksCount) {
             return false;
         }
-        if (tem.books.size() == 0) {
-            return false;
+
+        if(tem.books.size() == 0 && this.books.size() == 0) {
+            int i = System.identityHashCode(this) - System.identityHashCode(tem);
+            if(i == 0) {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
 
         boolean bIsSame = true;
