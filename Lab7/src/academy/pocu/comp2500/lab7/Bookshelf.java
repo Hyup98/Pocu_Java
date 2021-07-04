@@ -66,7 +66,6 @@ public class Bookshelf {
     public int hashCode() {
         int tem = booksCount;
         tem += books.hashCode();
-        tem += System.identityHashCode(this);
         return tem;
     }
 }
