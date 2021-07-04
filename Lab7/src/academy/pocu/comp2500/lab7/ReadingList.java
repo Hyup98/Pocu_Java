@@ -40,6 +40,9 @@ public class ReadingList {
         if (!this.listName.equals(tem.listName)) {
             return false;
         }
+        if(this.readedBooks.size() != tem.readedBooks.size()) {
+            return false;
+        }
 
         boolean bIsSame = true;
         for (int i = 0; i < readedBooks.size(); i++) {
