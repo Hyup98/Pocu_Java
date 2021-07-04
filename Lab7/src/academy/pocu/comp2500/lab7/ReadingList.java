@@ -40,7 +40,7 @@ public class ReadingList {
         if (!this.listName.equals(tem.listName)) {
             return false;
         }
-        if(this.readedBooks.size() != tem.readedBooks.size()) {
+        if (this.readedBooks.size() != tem.readedBooks.size()) {
             return false;
         }
 

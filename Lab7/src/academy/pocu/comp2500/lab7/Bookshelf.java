@@ -45,12 +45,11 @@ public class Bookshelf {
             return false;
         }
 
-        if(tem.books.size() == 0 && this.books.size() == 0) {
+        if (tem.books.size() == 0 && this.books.size() == 0) {
             int i = System.identityHashCode(this) - System.identityHashCode(tem);
-            if(i == 0) {
+            if (i == 0) {
                 return true;
-            }
-            else {
+            } else {
                 return false;
             }
         }

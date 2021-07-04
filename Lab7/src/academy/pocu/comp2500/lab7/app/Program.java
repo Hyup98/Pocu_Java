@@ -26,8 +26,7 @@ public class Program {
             System.out.print(tem.add(author2)); // false
             //System.out.print(author1.equals(author2));
             System.out.print(tem.add(author3)); // true
-            System.out.print(tem.add(author4)) ;
-
+            System.out.print(tem.add(author4));
 
 
             assert (author1.toString().equals("same author"));
@@ -73,7 +72,7 @@ public class Program {
             Bookshelf bookshelf1 = new Bookshelf(3);
             Bookshelf bookshelf2 = bookshelf1;
             Bookshelf bookshelf3 = new Bookshelf(3);
-            System.out.print("\n"+(bookshelf1.hashCode() - bookshelf3.hashCode()));
+            System.out.print("\n" + (bookshelf1.hashCode() - bookshelf3.hashCode()));
 
             assert (bookshelf1.equals(bookshelf2));
             assert (bookshelf2.equals(bookshelf1));
