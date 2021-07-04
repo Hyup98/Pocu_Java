@@ -31,8 +31,8 @@ public class Bookshelf {
     }
 
     public boolean equals(Object other) {
-        if (other == this) {
-            return true;
+        if (other != this) {
+            return false;
         }
 
         if (other == null || !(other instanceof Bookshelf)) {
@@ -46,15 +46,6 @@ public class Bookshelf {
 
         if (booksCount != tem.booksCount) {
             return false;
-        }
-
-        if (tem.books.size() == 0 && this.books.size() == 0) {
-            int i = System.identityHashCode(this) - System.identityHashCode(tem);
-            if (i == 0) {
-                return true;
-            } else {
-                return false;
-            }
         }
 
         boolean bIsSame = true;
