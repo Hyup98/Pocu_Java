@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 
 public class Bundle {
-    private final int MAXSIZE = 4;
+
     private HashSet<Book> books = new HashSet<>();
     private String bundleName;
 
@@ -13,9 +13,7 @@ public class Bundle {
     }
 
     public boolean add(Book book) {
-        if (books.size() == 4) {
-            return false;
-        }
+
         if (book == null) {
             return false;
         }
