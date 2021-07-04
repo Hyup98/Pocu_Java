@@ -1,7 +1,7 @@
 package academy.pocu.comp2500.lab7;
 
 public enum Genre {
-    SCIENCEFICTION,
+    SCIENCE_FICTION,
     ROMANCE,
     BIOGRAPHY,
     FANTASY,

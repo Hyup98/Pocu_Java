@@ -10,6 +10,7 @@ public class Author {
     }
 
     public boolean equals(Author other) {
+        System.out.print("equals호출\n");
         if (other == this) {
             return true;
         }
@@ -31,7 +32,9 @@ public class Author {
     }
 
     public int hashCode() {
-        int tem = this.firstName.hashCode() ^ (this.lastName.hashCode() << 16);
+        int tem = this.firstName.hashCode() + this.lastName.hashCode() * 11 ;
+        System.out.print(tem + "해쉬값 호출 \n");
+
         return tem;
     }
 
