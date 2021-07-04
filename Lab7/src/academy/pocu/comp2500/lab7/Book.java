@@ -1,8 +1,6 @@
 package academy.pocu.comp2500.lab7;
 
 
-import javax.management.MBeanNotificationInfo;
-
 public class Book {
     private String bookName;
     private Author author;
@@ -55,7 +53,21 @@ public class Book {
     }
 
     public int hashCode() {
-        return author.hashCode() + bookName.hashCode() + publishingYear * 31;
+        int tem = author.hashCode() + bookName.hashCode() * 11 + publishingYear * 31;
+        if (genre == Genre.BIOGRAPHY) {
+            tem += 1;
+        } else if (genre == Genre.FANTASY) {
+            tem += 2;
+        } else if (genre == Genre.MYSTERY) {
+            tem += 3;
+        } else if (genre == Genre.ROMANCE) {
+            tem += 4;
+        } else if (genre == Genre.SUSPENSE) {
+            tem += 5;
+        } else if (genre == Genre.SCIENCE_FICTION) {
+            tem += 6;
+        }
+        return tem;
     }
 
 
