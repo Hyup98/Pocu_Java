@@ -60,6 +60,10 @@ public class ReadingList {
     }
 
     public int hashCode() {
-        return readedBooks.hashCode() + listName.hashCode();
+        int tem = listName.hashCode();
+        for (int i = 0; i < readedBooks.size(); i++) {
+            tem += readedBooks.get(i).hashCode();
+        }
+        return tem;
     }
 }

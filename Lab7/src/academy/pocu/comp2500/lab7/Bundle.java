@@ -16,11 +16,22 @@ public class Bundle {
         if (books.size() == 4) {
             return false;
         }
+        if (book == null) {
+            return false;
+        }
         Iterator<Book> iter = books.iterator();
+
         boolean bIspossible = true;
         while (iter.hasNext()) {
             if (iter.next().equals(book)) {
                 bIspossible = false;
+                break;
+            }
+        }
+        while (iter.hasNext()) {
+            if (iter.next().hashCode() == book.hashCode()) {
+                bIspossible = false;
+                break;
             }
         }
         if (bIspossible) {

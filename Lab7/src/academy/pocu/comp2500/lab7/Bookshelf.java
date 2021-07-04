@@ -58,7 +58,11 @@ public class Bookshelf {
     }
 
     public int hashCode() {
-
-        return System.identityHashCode(this)+ booksCount * 31;
+        int tem = booksCount;
+        tem += System.identityHashCode(this);
+        for (int i = 0; i < books.size(); i++) {
+            tem += books.get(i).hashCode();
+        }
+        return tem;
     }
 }
