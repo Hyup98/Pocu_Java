@@ -50,7 +50,7 @@ public class Bookshelf {
 
         boolean bIsSame = true;
         for (int i = 0; i < books.size(); i++) {
-            if (!books.contains(tem.books.get(i))) {
+            if (!books.get(i).equals(tem.books.get(i))) {
                 bIsSame = false;
             }
         }

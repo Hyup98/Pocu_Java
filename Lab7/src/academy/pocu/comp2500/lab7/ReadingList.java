@@ -43,7 +43,7 @@ public class ReadingList {
 
         boolean bIsSame = true;
         for (int i = 0; i < readedBooks.size(); i++) {
-            if (!tem.readedBooks.contains(readedBooks.get(i))) {
+            if (!readedBooks.get(i).equals(tem.readedBooks.get(i))) {
                 bIsSame = false;
             }
         }
