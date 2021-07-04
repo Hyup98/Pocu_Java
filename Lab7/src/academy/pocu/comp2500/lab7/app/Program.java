@@ -14,17 +14,21 @@ public class Program {
 
             // Author test
 
-
             Author author1 = new Author("same", "author");
             Author author2 = new Author("same", "author");
             Author author3 = new Author("diff", "author");
             Author author4 = author1;
 
+            //System.out.print(author1.equals(author2));
+            //System.out.print(author1.equals(author4));
             HashSet<Author> tem = new HashSet<>();
             System.out.print(tem.add(author1)); // true
             System.out.print(tem.add(author2)); // false
+            //System.out.print(author1.equals(author2));
             System.out.print(tem.add(author3)); // true
             System.out.print(tem.add(author4)) ;
+
+
 
             assert (author1.toString().equals("same author"));
             assert (author2.toString().equals("same author"));

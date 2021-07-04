@@ -9,7 +9,7 @@ public class Author {
         this.lastName = lastName;
     }
 
-    public boolean equals(Author other) {
+    public boolean equals(Object other) {
         System.out.print("equals호출\n");
         if (other == this) {
             return true;
@@ -19,8 +19,10 @@ public class Author {
             return false;
         }
 
-        if (other.firstName.equals(this.firstName)) {
-            if (other.lastName.equals(this.lastName)) {
+        Author tem = (Author) other;
+
+        if (tem.firstName.equals(this.firstName)) {
+            if (tem.lastName.equals(this.lastName)) {
                 return true;
             }
         }
@@ -32,6 +34,7 @@ public class Author {
     }
 
     public int hashCode() {
+        System.out.print("\n"+this.firstName + " " + this.lastName + "\n");
         int tem = this.firstName.hashCode() + this.lastName.hashCode() * 11 ;
         System.out.print(tem + "해쉬값 호출 \n");
 
