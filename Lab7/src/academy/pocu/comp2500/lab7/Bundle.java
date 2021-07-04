@@ -44,7 +44,7 @@ public class Bundle {
         return bIspossible;
     }
 
-    public boolean equals(Bundle other) {
+    public boolean equals(Object other) {
         if (this == other) {
             return true;
         }
@@ -52,14 +52,16 @@ public class Bundle {
         if (other == null || !(other instanceof Bundle)) {
             return false;
         }
-        if (!this.bundleName.equals(other.bundleName)) {
+
+        Bundle tem = (Bundle) other;
+        if (!this.bundleName.equals(tem.bundleName)) {
             return false;
         }
 
         Iterator<Book> iter = books.iterator();
         boolean bIspossible = true;
         while (iter.hasNext()) {
-            if (!other.books.contains(iter.next())) {
+            if (!tem.books.contains(iter.next())) {
                 bIspossible = false;
             }
         }

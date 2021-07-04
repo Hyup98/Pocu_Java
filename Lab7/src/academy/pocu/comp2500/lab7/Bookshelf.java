@@ -30,24 +30,27 @@ public class Bookshelf {
         return false;
     }
 
-    public boolean equals(Bookshelf other) {
+    public boolean equals(Object other) {
         if (other == this) {
             return true;
-        }
-        if (booksCount != other.booksCount) {
-            return false;
         }
 
         if (other == null || !(other instanceof Bookshelf)) {
             return false;
         }
-        if (other.books.size() == 0) {
+
+        Bookshelf tem = (Bookshelf) other;
+
+        if (booksCount != tem.booksCount) {
+            return false;
+        }
+        if (tem.books.size() == 0) {
             return false;
         }
 
         boolean bIsSame = true;
         for (int i = 0; i < books.size(); i++) {
-            if (!books.contains(other.books.get(i))) {
+            if (!books.contains(tem.books.get(i))) {
                 bIsSame = false;
             }
         }

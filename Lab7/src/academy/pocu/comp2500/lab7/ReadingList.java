@@ -26,7 +26,7 @@ public class ReadingList {
         return false;
     }
 
-    public boolean equals(ReadingList other) {
+    public boolean equals(Object other) {
         if (other == this) {
             return true;
         }
@@ -34,14 +34,16 @@ public class ReadingList {
         if (other == null || !(other instanceof ReadingList)) {
             return false;
         }
-        if (!this.listName.equals(other.listName)) {
+
+        ReadingList tem = (ReadingList) other;
+        if (!this.listName.equals(tem.listName)) {
             return false;
         }
 
 
         boolean bIsSame = true;
         for (int i = 0; i < readedBooks.size(); i++) {
-            if (!other.readedBooks.contains(readedBooks.get(i))) {
+            if (!tem.readedBooks.contains(readedBooks.get(i))) {
                 bIsSame = false;
             }
         }

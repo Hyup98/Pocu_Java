@@ -1,6 +1,8 @@
 package academy.pocu.comp2500.lab7;
 
 
+import javax.management.MBeanNotificationInfo;
+
 public class Book {
     private String bookName;
     private Author author;
@@ -18,30 +20,34 @@ public class Book {
         return String.format("%s [%s]", this.bookName, this.author.toString());
     }
 
-    public boolean equals(Book other) {
+    public boolean equals(Object other) {
         if (other == this) {
             return true;
         }
-        if (publishingYear != other.publishingYear) {
-            return false;
-        }
+
 
         if (other == null || !(other instanceof Book)) {
             return false;
         }
 
+        Book tem = (Book)other;
+
+        if (publishingYear != tem.publishingYear) {
+            return false;
+        }
+
         boolean bIsSame = true;
 
-        if (!bookName.equals(other.bookName)) {
+        if (!bookName.equals(tem.bookName)) {
             bIsSame = false;
         }
-        if (!author.toString().equals(other.author.toString())) {
+        if (!author.toString().equals(tem.author.toString())) {
             bIsSame = false;
         }
-        if (publishingYear != other.publishingYear) {
+        if (publishingYear != tem.publishingYear) {
             bIsSame = false;
         }
-        if (other.genre != genre) {
+        if (tem.genre != genre) {
             bIsSame = false;
         }
 
