@@ -36,10 +36,10 @@ public class ReadingList {
         }
 
         ReadingList tem = (ReadingList) other;
+
         if (!this.listName.equals(tem.listName)) {
             return false;
         }
-
 
         boolean bIsSame = true;
         for (int i = 0; i < readedBooks.size(); i++) {
@@ -61,9 +61,7 @@ public class ReadingList {
 
     public int hashCode() {
         int tem = listName.hashCode();
-        for (int i = 0; i < readedBooks.size(); i++) {
-            tem += readedBooks.get(i).hashCode() * i * 7;
-        }
+        tem += readedBooks.hashCode();
         return tem;
     }
 }

@@ -73,6 +73,7 @@ public class Program {
             Bookshelf bookshelf1 = new Bookshelf(3);
             Bookshelf bookshelf2 = bookshelf1;
             Bookshelf bookshelf3 = new Bookshelf(3);
+            System.out.print("\n"+(bookshelf1.hashCode() - bookshelf3.hashCode()));
 
             assert (bookshelf1.equals(bookshelf2));
             assert (bookshelf2.equals(bookshelf1));
