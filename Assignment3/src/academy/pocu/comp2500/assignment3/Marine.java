@@ -11,4 +11,8 @@ public class Marine extends Unit{
         super(location,35);
     }
 
+    public boolean scan() {
+
+    }
+
 }
