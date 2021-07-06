@@ -53,7 +53,7 @@ public class Sprinkler extends SmartDevice implements ISprayable {
         } else if (isOn == true && (schedules.get(flag).getStart() + schedules.get(flag).getOperateTime()) > getTictak()) {
             spray(planter);
 
-        } else if (isOn == true && (schedules.get(flag).getStart() + schedules.get(flag).getOperateTime()) == getTictak()) {
+        } else if (isOn == true && (schedules.get(flag).getStart() + schedules.get(flag).getOperateTime())  == getTictak()) {
             isOn = false;
             setOnTime(getTictak());
             for (int i = flag + 1; i < schedules.size(); i++) {
@@ -67,7 +67,6 @@ public class Sprinkler extends SmartDevice implements ISprayable {
             return;
         }
     }
-
     public void setPlanter(Planter planter) {
         this.planter = planter;
     }

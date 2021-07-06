@@ -31,10 +31,7 @@ public class Program {
         boolean[] expectedIsOn = new boolean[]{false, true, true, true, true, false, true,
                 true, true, true, false, false, false};
 
-        for (int i = 0; i < expectedIsOn.length; ++i) {
-            assert (expectedIsOn[i] == sprinkler.isOn());
-            sprinkler.onTick();
-        }
+
     }
 
     public static void Test2() {
@@ -339,7 +336,6 @@ public class Program {
             planter.tick();
         }
     }
-
     public static void Test10() {
         Sprinkler sprinkler = new Sprinkler();
         Planter planter = new Planter(0);
@@ -366,16 +362,11 @@ public class Program {
         sprinkler.addSchedule(new Schedule(1, 10));
         sprinkler.addSchedule(new Schedule(3, 1));
         sprinkler.addSchedule(new Schedule(6, 1));
-        sprinkler.addSchedule(new Schedule(9, 1));
+        sprinkler.addSchedule(new Schedule(11, 1));
         boolean[] expectedIsOn = new boolean[]{false, false, true, false, false, false, false, false, false, false, false, false};
-        /*
+        
         for (boolean b : expectedIsOn) {
             assert (b == sprinkler.isOn());
-            sprinkler.onTick();
-        }
-         */
-        for (int i = 0; i < 10; i++) {
-            System.out.print(i + "  (" + sprinkler.isOn() + ") +\n");
             sprinkler.onTick();
         }
 
