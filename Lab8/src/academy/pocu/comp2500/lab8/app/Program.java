@@ -364,7 +364,7 @@ public class Program {
         sprinkler.addSchedule(new Schedule(6, 1));
         sprinkler.addSchedule(new Schedule(11, 1));
         boolean[] expectedIsOn = new boolean[]{false, false, true, false, false, false, false, false, false, false, false, false};
-        
+
         for (boolean b : expectedIsOn) {
             assert (b == sprinkler.isOn());
             sprinkler.onTick();
