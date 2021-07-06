@@ -30,6 +30,9 @@ public class Sprinkler extends SmartDevice implements ISprayable {
 
     @Override
     public boolean isOn() {
+        if (schedules.size() == 0) {
+            return false;
+        }
         if (isOn == false && schedules.get(flag).getStart() == getTictak()) {
             isOn = true;
             if (planter != null) {
