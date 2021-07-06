@@ -57,7 +57,7 @@ public class Sprinkler extends SmartDevice implements ISprayable {
             isOn = false;
             setOnTime(getTictak());
             for (int i = flag + 1; i < schedules.size(); i++) {
-                if (schedules.get(i).getStart() > getTictak()) {
+                if (schedules.get(i).getStart() + schedules.get(i).getOperateTime() > getTictak()) {
                     flag = i;
                     break;
                 }
