@@ -1,8 +1,12 @@
 package academy.pocu.comp2500.lab8;
 
+import java.util.ArrayList;
+
 public class Planter {
     private int tem;
     private int waterAmount;
+    private ArrayList<Sprinkler> sprinklers = new ArrayList<>();
+    private ArrayList<Drainer> drainers = new ArrayList<>();
     private Sprinkler sprinkler;
     private Drainer drainer;
 
@@ -25,13 +29,19 @@ public class Planter {
     }
 
     public void tick() {
-        if (drainer != null) {
-            drainer.onTick();
+
+        for (int i = 0; i < drainers.size(); i++) {
+            if (drainers.get(i) != null) {
+                drainers.get(i).onTick();
+            }
         }
 
-        if (sprinkler != null) {
-            sprinkler.onTick();
+        for (int i = 0; i < sprinklers.size(); i++) {
+            if (sprinklers.get(i) != null) {
+                sprinklers.get(i).onTick();
+            }
         }
+
         tem -= 2;
         if (waterAmount + tem < 0) {
             waterAmount = 0;
@@ -44,11 +54,13 @@ public class Planter {
 
     public void installSmartDevice(SmartDevice device) {
         if (device.getType() == 1) {
-            sprinkler = (Sprinkler) device;
-            sprinkler.setPlanter(this);
+            sprinklers.add((Sprinkler) device);
+            Sprinkler tem = (Sprinkler) device;
+            tem.setPlanter(this);
         } else {
-            drainer = (Drainer) device;
-            drainer.setPlanter(this);
+            drainers.add((Drainer) device);
+            Drainer tem = (Drainer) device;
+            tem.setPlanter(this);
         }
     }
 
