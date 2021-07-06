@@ -15,10 +15,9 @@ public class Planter {
     }
 
     public void subWater() {
-        if(waterAmount  >= 7) {
+        if (waterAmount >= 7) {
             waterAmount -= 7;
-        }
-        else {
+        } else {
             waterAmount = 0;
         }
     }
@@ -28,27 +27,28 @@ public class Planter {
     }
 
     public void tick() {
-        drainer.onTick();
-        sprinkler.onTick();
-        if(waterAmount >= 2) {
-            waterAmount -= 2;
+        if (drainer != null) {
+            drainer.onTick();
         }
-        else {
+        if (sprinkler != null) {
+            sprinkler.onTick();
+        }
+        if (waterAmount >= 2) {
+            waterAmount -= 2;
+        } else {
             waterAmount = 0;
         }
     }
 
     public void installSmartDevice(SmartDevice device) {
-        if(device.getType() == 1) {
+        if (device.getType() == 1) {
             sprinkler = (Sprinkler) device;
             sprinkler.setPlanter(this);
-        }
-        else {
+        } else {
             drainer = (Drainer) device;
             drainer.setPlanter(this);
         }
     }
-
 
 
 }

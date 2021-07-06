@@ -1,8 +1,7 @@
 package academy.pocu.comp2500.lab8;
 
 
-
-public class Drainer extends SmartDevice implements IDrainable, IWaterDetectable{
+public class Drainer extends SmartDevice implements IDrainable, IWaterDetectable {
     private int maxAmount;
     private boolean isOn;
     private Planter planter;
@@ -22,19 +21,17 @@ public class Drainer extends SmartDevice implements IDrainable, IWaterDetectable
     }
 
     public boolean isOn() {
-        if(maxAmount < planter.getWaterAmount()) {
-            if(isOn == false) {
+        if (maxAmount < planter.getWaterAmount()) {
+            if (isOn == false) {
                 setOnTime(getTictak());
                 drain(planter);
                 isOn = true;
-            }
-            else {
+            } else {
                 drain(planter);
             }
             return true;
-        }
-        else {
-            if(isOn == true) {
+        } else {
+            if (isOn == true) {
                 setOnTime(getTictak());
                 isOn = false;
             }
