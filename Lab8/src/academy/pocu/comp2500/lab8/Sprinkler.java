@@ -30,8 +30,12 @@ public class Sprinkler extends SmartDevice implements ISprayable {
 
     @Override
     public boolean isOn() {
+        return isOn;
+    }
+
+    public void run() {
         if (schedules.size() == 0) {
-            return false;
+            return;
         }
         if (isOn == false && schedules.get(flag).getStart() == getTictak()) {
             isOn = true;
@@ -39,10 +43,10 @@ public class Sprinkler extends SmartDevice implements ISprayable {
                 spray(planter);
             }
             setOnTime(getTictak());
-            return isOn;
+
         } else if (isOn == true && (schedules.get(flag).getStart() + schedules.get(flag).getOperateTime()) > getTictak()) {
             spray(planter);
-            return isOn;
+
         } else if (isOn == true && (schedules.get(flag).getStart() + schedules.get(flag).getOperateTime()) == getTictak()) {
             isOn = false;
             setOnTime(getTictak());
@@ -52,13 +56,10 @@ public class Sprinkler extends SmartDevice implements ISprayable {
                     break;
                 }
             }
-            return isOn;
-        } else if (isOn == false && schedules.get(flag).getStart() < getTictak()) {
-            return isOn;
-        } else {
-            return isOn;
-        }
 
+        } else {
+            return;
+        }
     }
 
     public void setPlanter(Planter planter) {

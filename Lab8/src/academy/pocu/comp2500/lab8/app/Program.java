@@ -10,7 +10,7 @@ public class Program {
         {
             Sprinkler sprinkler = new Sprinkler();
 
-            sprinkler.addSchedule(new Schedule(5, 7));
+            sprinkler.addSchedule(new Schedule(2, 3));
 
             Planter planter = new Planter(0);
             planter.installSmartDevice(sprinkler);
@@ -28,7 +28,7 @@ public class Program {
                     17, 18, 19, 20, 21, 22, 23, 24, 25, 26};
 
             for (int i = 0; i < 40; ++i) {
-                System.out.print(i + " -> " + sprinkler.isOn() + "  " + sprinkler.getTicksSinceLastUpdate() + "\n");
+                System.out.print(i + "(" + planter.getWaterAmount() + ")" + " -> " + sprinkler.isOn() + "  " + sprinkler.getTicksSinceLastUpdate() + "\n");
                 planter.tick();
             }
         }

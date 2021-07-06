@@ -21,6 +21,11 @@ public class Drainer extends SmartDevice implements IDrainable, IWaterDetectable
     }
 
     public boolean isOn() {
+        return isOn;
+    }
+
+    @Override
+    public void run() {
         if (maxAmount < planter.getWaterAmount()) {
             if (isOn == false) {
                 setOnTime(getTictak());
@@ -29,15 +34,14 @@ public class Drainer extends SmartDevice implements IDrainable, IWaterDetectable
             } else {
                 drain(planter);
             }
-            return true;
+
         } else {
             if (isOn == true) {
                 setOnTime(getTictak());
                 isOn = false;
             }
-            return false;
-        }
 
+        }
     }
 
     public void setPlanter(Planter planter) {

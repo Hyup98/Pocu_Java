@@ -14,8 +14,10 @@ public abstract class SmartDevice {
 
     public void onTick() {
         tictak++;
-        isOn();
+        run();
     }
+
+    public abstract void run();
 
     public int getTictak() {
         return tictak;
