@@ -1,12 +1,14 @@
 package academy.pocu.comp2500.lab8;
 
 public class Planter {
+    private int tem;
     private int waterAmount;
     private Sprinkler sprinkler;
     private Drainer drainer;
 
     public Planter(int waterAmount) {
         this.waterAmount = waterAmount;
+        tem = 0;
 
     }
 
@@ -15,29 +17,29 @@ public class Planter {
     }
 
     public void subWater() {
-        if (waterAmount >= 7) {
-            waterAmount -= 7;
-        } else {
-            waterAmount = 0;
-        }
+        tem -= 7;
     }
 
     public void addWater() {
-        waterAmount += 15;
+        tem += 15;
     }
 
     public void tick() {
         if (drainer != null) {
             drainer.onTick();
         }
+
         if (sprinkler != null) {
             sprinkler.onTick();
         }
-        if (waterAmount >= 2) {
-            waterAmount -= 2;
-        } else {
+        tem -= 2;
+        if (waterAmount + tem < 0) {
             waterAmount = 0;
+        } else {
+            waterAmount += tem;
         }
+        tem = 0;
+
     }
 
     public void installSmartDevice(SmartDevice device) {
