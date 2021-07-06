@@ -323,7 +323,17 @@ public class Program {
         };
 
         for (int i = 0; i < expectedWater.length; ++i) {
-            System.out.print(i + " -> " + planter.getWaterAmount() + "       S:" + sprinkler.isOn() + "    D:" + drainer.isOn() + "\n");
+            int w1 = expectedWater[i];
+            int w2 = planter.getWaterAmount();
+            assert (w1 == w2) : i;
+
+            int st1 = sprinklerTicksSinceLastUpdate[i];
+            int st2 = sprinkler.getTicksSinceLastUpdate();
+            assert (st1 == st2) : i;
+
+            int dt1 = drainerTicksSinceLastUpdate[i];
+            int dt2 = drainer.getTicksSinceLastUpdate();
+            assert (dt1 == dt2) : i;
             planter.tick();
         }
     }

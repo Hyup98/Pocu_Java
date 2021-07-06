@@ -17,7 +17,9 @@ public class Sprinkler extends SmartDevice implements ISprayable {
     public void addSchedule(Schedule schedule) {
         if (schedule != null) {
             if (schedule.getStart() != 0) {
-                schedules.add(schedule);
+                if (schedule.getOperateTime() != 0) {
+                    schedules.add(schedule);
+                }
             }
         }
     }
