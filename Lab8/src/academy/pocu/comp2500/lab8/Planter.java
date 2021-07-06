@@ -54,9 +54,12 @@ public class Planter {
 
     public void installSmartDevice(SmartDevice device) {
         if (device.getType() == 1) {
-            sprinklers.add((Sprinkler) device);
             Sprinkler tem = (Sprinkler) device;
-            tem.setPlanter(this);
+            if(tem.getSchedulesSize() != 0) {
+                sprinklers.add((Sprinkler) device);
+                tem.setPlanter(this);
+            }
+
         } else {
             drainers.add((Drainer) device);
             Drainer tem = (Drainer) device;

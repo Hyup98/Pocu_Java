@@ -24,6 +24,10 @@ public class Sprinkler extends SmartDevice implements ISprayable {
         }
     }
 
+    public int getSchedulesSize() {
+        return schedules.size();
+    }
+
     public void spray(Planter planter) {
         if (planter != null) {
             planter.addWater();
