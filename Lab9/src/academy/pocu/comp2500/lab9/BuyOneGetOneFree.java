@@ -22,14 +22,15 @@ public class BuyOneGetOneFree {
         Iterator iter = SKUNumber.iterator();
         while (iter.hasNext()) {//값이 있으면 true 없으면 false
             count = 0;
+            UUID temId = (UUID) iter.next();
             for (int i = 0; i < books.size(); i++) {
-                if (books.get(i).getSku().equals(iter.next())) {
+                if (books.get(i).getSku().equals(temId)) {
                     checkprice = books.get(i).getPrice();
                     break;
                 }
             }
             for (int i = 0; i < books.size(); i++) {
-                if (iter.next().equals(books.get(i))) {
+                if (books.get(i).getSku().equals(temId)) {
                     count++;
                 }
             }
