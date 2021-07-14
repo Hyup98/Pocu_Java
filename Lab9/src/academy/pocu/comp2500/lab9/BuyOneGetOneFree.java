@@ -6,11 +6,10 @@ import java.util.Iterator;
 import java.util.UUID;
 
 public class BuyOneGetOneFree {
-    HashSet<UUID> SKUNumber = new HashSet<>();
+    private HashSet<UUID> SKUNumber = new HashSet<>();
 
     public BuyOneGetOneFree(HashSet<UUID> sku) {
         SKUNumber = sku;
-
     }
 
     public int getTotalPrice(ArrayList<Book> books) {
