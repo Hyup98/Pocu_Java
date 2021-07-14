@@ -21,7 +21,7 @@ public class DecadeMadness {
         while (iter.hasNext()) {
             count = 0;
             tem = 0;
-            int temY = (int)iter.next();
+            int temY = (int) iter.next();
             for (int i = 0; i < books.size(); i++) {
                 if (temY == ((books.get(i).getPublishedYear() / 10))) {
                     count++;
