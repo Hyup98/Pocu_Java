@@ -6,10 +6,10 @@ import java.util.Iterator;
 import java.util.UUID;
 
 public class BuyOneGetOneFree {
-    private HashSet<UUID> SKUNumber = new HashSet<>();
+    private HashSet<UUID> skuNumber = new HashSet<>();
 
     public BuyOneGetOneFree(HashSet<UUID> sku) {
-        SKUNumber = sku;
+        skuNumber = sku;
     }
 
     public int getTotalPrice(ArrayList<Book> books) {
@@ -18,7 +18,7 @@ public class BuyOneGetOneFree {
         int discount = 0;
         int tem = 0;
         int checkprice = 0;
-        Iterator iter = SKUNumber.iterator();
+        Iterator iter = skuNumber.iterator();
         while (iter.hasNext()) {//값이 있으면 true 없으면 false
             count = 0;
             UUID temId = (UUID) iter.next();
