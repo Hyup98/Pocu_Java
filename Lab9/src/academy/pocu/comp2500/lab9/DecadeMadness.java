@@ -11,6 +11,9 @@ public class DecadeMadness {
     }
 
     public int getTotalPrice(ArrayList<Book> books) {
+        if (books.size() == 0) {
+            return 0;
+        }
         double total = 0;
         for (int i = 0; i < books.size(); i++) {
             years.add(books.get(i).getPublishedYear() / 10);

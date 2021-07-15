@@ -14,6 +14,9 @@ public class BuyOneGetOneFree {
 
     public int getTotalPrice(ArrayList<Book> books) {
         //1+1 정책에 의한 가격 책정
+        if (books.size() == 0) {
+            return 0;
+        }
         int count;
         int discount = 0;
         int tem = 0;

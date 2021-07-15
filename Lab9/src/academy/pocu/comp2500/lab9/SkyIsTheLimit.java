@@ -10,6 +10,9 @@ public class SkyIsTheLimit {
     }
 
     public int getTotalPrice(ArrayList<Book> books) {
+        if (books.size() == 0) {
+            return 0;
+        }
         double first = 0;
         double second = 0;
         double total = 0;
