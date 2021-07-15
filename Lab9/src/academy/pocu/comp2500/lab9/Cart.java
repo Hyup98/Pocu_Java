@@ -50,6 +50,10 @@ public final class Cart {
         return tem.getTotalPrice(books);
     }
 
+    public int getTotalPrice(SimplePricing tem) {
+        return tem.getTotalPrice(books);
+    }
+
     /*
     public int getTotalPrice() {
         int sum = 0;
