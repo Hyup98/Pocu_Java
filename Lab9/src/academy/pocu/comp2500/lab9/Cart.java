@@ -38,6 +38,11 @@ public final class Cart {
         return true;
     }
 
+    public ArrayList<Book> getBooks() {
+        return books;
+    }
+
+    /*
     public int getTotalPrice(SkyIsTheLimit tem) {
         return tem.getTotalPrice(books);
     }
@@ -63,5 +68,6 @@ public final class Cart {
 
         return sum;
     }
+    */
 
 }

@@ -5,15 +5,17 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.UUID;
 
-public class BuyOneGetOneFree {
+public class BuyOneGetOneFree extends PricePolicy {
     private HashSet<UUID> skuNumber = new HashSet<>();
 
-    public BuyOneGetOneFree(HashSet<UUID> sku) {
+    public BuyOneGetOneFree(HashSet<UUID> sku, Cart cart) {
+        super(cart);
         skuNumber = sku;
     }
 
-    public int getTotalPrice(ArrayList<Book> books) {
+    public int getTotalPrice() {
         //1+1 정책에 의한 가격 책정
+        ArrayList<Book> books = getCart().getBooks();
         if (books.size() == 0) {
             return 0;
         }

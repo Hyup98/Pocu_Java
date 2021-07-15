@@ -4,13 +4,15 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 
-public class DecadeMadness {
+public class DecadeMadness extends PricePolicy {
     private HashSet<Integer> years = new HashSet<Integer>();
 
-    public DecadeMadness() {
+    public DecadeMadness(Cart cart) {
+        super(cart);
     }
 
-    public int getTotalPrice(ArrayList<Book> books) {
+    public int getTotalPrice() {
+        ArrayList<Book> books =  getCart().getBooks();
         if (books.size() == 0) {
             return 0;
         }
