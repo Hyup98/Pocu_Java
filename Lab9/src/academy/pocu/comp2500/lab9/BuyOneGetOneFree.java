@@ -22,7 +22,7 @@ public class BuyOneGetOneFree extends PricePolicy {
         int discount = 0;
         int tem = 0;
         int checkprice = 0;
-        Iterator iter = skuNumber.iterator();
+        Iterator<UUID> iter = skuNumber.iterator();
         while (iter.hasNext()) {//값이 있으면 true 없으면 false
             count = 0;
             UUID temId = (UUID) iter.next();

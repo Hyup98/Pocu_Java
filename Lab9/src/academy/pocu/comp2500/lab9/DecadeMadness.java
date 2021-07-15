@@ -20,7 +20,7 @@ public class DecadeMadness extends PricePolicy {
         }
         double count = 0;
         double tem = 0;
-        Iterator iter = years.iterator();
+        Iterator<Integer> iter = years.iterator();
         while (iter.hasNext()) {
             count = 0;
             tem = 0;
