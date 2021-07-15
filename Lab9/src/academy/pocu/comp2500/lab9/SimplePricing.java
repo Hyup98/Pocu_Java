@@ -3,12 +3,11 @@ package academy.pocu.comp2500.lab9;
 import java.util.ArrayList;
 
 public class SimplePricing extends PricePolicy {
-    public SimplePricing(Cart cart) {
-        super(cart);
+    public SimplePricing() {
     }
 
-    public int getTotalPrice() {
-        ArrayList<Book> books = getCart().getBooks();
+    public int getTotalPrice(ArrayList<Book> books) {
+
         if (books.size() == 0) {
             return 0;
         }

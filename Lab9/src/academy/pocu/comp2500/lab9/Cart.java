@@ -42,32 +42,11 @@ public final class Cart {
         return books;
     }
 
-    /*
-    public int getTotalPrice(SkyIsTheLimit tem) {
-        return tem.getTotalPrice(books);
+
+
+    public int getTotalPrice(PricePolicy policy) {
+        return policy.getTotalPrice(books);
     }
 
-    public int getTotalPrice(BuyOneGetOneFree tem) {
-        return tem.getTotalPrice(books);
-    }
-
-    public int getTotalPrice(DecadeMadness tem) {
-        return tem.getTotalPrice(books);
-    }
-
-    public int getTotalPrice(SimplePricing tem) {
-        return tem.getTotalPrice(books);
-    }
-
-    public int getTotalPrice() {
-        int sum = 0;
-
-        for (Book book : this.books) {
-            sum += book.getPrice();
-        }
-
-        return sum;
-    }
-    */
 
 }

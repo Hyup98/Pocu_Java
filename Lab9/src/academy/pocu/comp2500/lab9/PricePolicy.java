@@ -2,13 +2,9 @@ package academy.pocu.comp2500.lab9;
 
 import java.util.ArrayList;
 
-public class PricePolicy {
-    private Cart cart;
-    protected PricePolicy(Cart cart) {
-        this.cart = cart;
+abstract public class PricePolicy {
+    public PricePolicy() {
     }
 
-    public Cart getCart() {
-        return cart;
-    }
+    abstract public int getTotalPrice(ArrayList<Book> books);
 }

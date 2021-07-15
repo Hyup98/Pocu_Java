@@ -5,13 +5,11 @@ import java.util.ArrayList;
 public class SkyIsTheLimit extends PricePolicy{
     private int price;
 
-    public SkyIsTheLimit(int price, Cart cart) {
-        super((cart));
+    public SkyIsTheLimit(int price) {
         this.price = price;
     }
 
-    public int getTotalPrice() {
-        ArrayList<Book> books =  getCart().getBooks();
+    public int getTotalPrice(ArrayList<Book> books ) {
         if (books.size() == 0) {
             return 0;
         }

@@ -7,12 +7,10 @@ import java.util.Iterator;
 public class DecadeMadness extends PricePolicy {
     private HashSet<Integer> years = new HashSet<Integer>();
 
-    public DecadeMadness(Cart cart) {
-        super(cart);
+    public DecadeMadness() {
     }
 
-    public int getTotalPrice() {
-        ArrayList<Book> books =  getCart().getBooks();
+    public int getTotalPrice(ArrayList<Book> books) {
         if (books.size() == 0) {
             return 0;
         }

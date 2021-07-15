@@ -8,14 +8,13 @@ import java.util.UUID;
 public class BuyOneGetOneFree extends PricePolicy {
     private HashSet<UUID> skuNumber = new HashSet<>();
 
-    public BuyOneGetOneFree(HashSet<UUID> sku, Cart cart) {
-        super(cart);
+    public BuyOneGetOneFree(HashSet<UUID> sku) {
         skuNumber = sku;
     }
 
-    public int getTotalPrice() {
+    public int getTotalPrice(ArrayList<Book> books) {
         //1+1 정책에 의한 가격 책정
-        ArrayList<Book> books = getCart().getBooks();
+
         if (books.size() == 0) {
             return 0;
         }
