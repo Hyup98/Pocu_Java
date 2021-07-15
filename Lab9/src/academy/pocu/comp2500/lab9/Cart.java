@@ -43,7 +43,6 @@ public final class Cart {
     }
 
 
-
     public int getTotalPrice(PricePolicy policy) {
         return policy.getTotalPrice(books);
     }

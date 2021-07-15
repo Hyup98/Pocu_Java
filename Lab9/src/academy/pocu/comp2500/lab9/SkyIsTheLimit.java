@@ -2,14 +2,14 @@ package academy.pocu.comp2500.lab9;
 
 import java.util.ArrayList;
 
-public class SkyIsTheLimit extends PricePolicy{
+public class SkyIsTheLimit extends PricePolicy {
     private int price;
 
     public SkyIsTheLimit(int price) {
         this.price = price;
     }
 
-    public int getTotalPrice(ArrayList<Book> books ) {
+    public int getTotalPrice(ArrayList<Book> books) {
         if (books.size() == 0) {
             return 0;
         }
