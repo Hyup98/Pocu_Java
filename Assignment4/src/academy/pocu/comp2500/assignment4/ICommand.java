@@ -1,4 +1,7 @@
 package academy.pocu.comp2500.assignment4;
 
-public class ICommand {
+public interface ICommand {
+    abstract boolean execute();
+    abstract boolean undo();
+    abstract boolean redo();
 }

@@ -21,7 +21,7 @@ public class Canvas {
         return height;
     }
 
-    public char getPil(int x, int y) {
+    public char getPixel(int x, int y) {
         for(int i = 0 ; i < asciis.size() ; i++ ) {
             if(asciis.get(i).isThere(x,y)) {
                 return asciis.get(i).getAscii();
@@ -73,14 +73,14 @@ public class Canvas {
 
     public void fillHorizontalLine(int y, char ascii) {
         for(int i = 0; i <width; i++ ) {
-            Ascii tem = new Ascii(-width/2+i,y,ascii);
+            Ascii tem = new Ascii(i,y,ascii);
             asciis.add(tem);
         }
     }
 
     public void fillVerticalLine(int x, char ascii) {
         for(int i = 0; i <height; i++ ) {
-            Ascii tem = new Ascii(-height/2+i,x,ascii);
+            Ascii tem = new Ascii(x,i,ascii);
             asciis.add(tem);
         }
     }
@@ -105,7 +105,19 @@ public class Canvas {
                     sb.append('|');
                     continue;
                 }
-                sb.append(' ');
+                //있는지 확인
+                boolean bFlag = true;
+                for(int k = 0; k < asciis.size(); k++)
+                {
+                    if(asciis.get(k).isThere(j - 1,i - 1)) {
+                        sb.append(asciis.get(k).getAscii());
+                        bFlag = false;
+                        continue;
+                    }
+                }
+                if(bFlag) {
+                    sb.append(' ');
+                }
             }
             sb.append('\n');
         }
