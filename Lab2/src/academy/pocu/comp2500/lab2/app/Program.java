@@ -50,5 +50,6 @@ public class Program {
 
         assert Math.abs(quotient.real - (-1.89709E-4)) < DOUBLE_EPSILON;
         assert Math.abs(quotient.imaginary - 9.29944E-5) < DOUBLE_EPSILON;
+        System.out.print("12343");
     }
 }

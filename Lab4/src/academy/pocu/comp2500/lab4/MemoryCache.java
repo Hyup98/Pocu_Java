@@ -1,93 +1,108 @@
 package academy.pocu.comp2500.lab4;
 
+import com.sun.jdi.ArrayReference;
+
 import java.util.ArrayList;
 import java.lang.reflect.Array;
 import java.util.HashMap;
 
 public class MemoryCache {
-    private String diskName;
-    private int inputNum;
     private static int instanceCount = 0;
     private static int maxInstanceNum = Integer.MAX_VALUE;
     private static EvictionPolicy mode = EvictionPolicy.LEAST_RECENTLY_USED;
-    private HashMap<String,String> entry;
-    private HashMap<Integer,String> log;
-    private int MaxEntryNum;
-    private int entryCount;
-    private static ArrayList<Integer> queue = new ArrayList<Integer>();
-    private static HashMap<Integer,MemoryCache> cacheInstance = new HashMap<Integer,MemoryCache>();
+    private static ArrayList<String> usingLog = new ArrayList<>();
+    public static ArrayList<MemoryCache> caches = new ArrayList<>();
+    private String diskName;
+    private HashMap<String,String> entry = new HashMap<>();//캐쉬속 데이터
+    private ArrayList<String> entryOrder = new ArrayList<>();
+    private ArrayList<String> usingEntryLog = new ArrayList<>();
+    private int MaxEntryNum;//케쉬속 데이터 최대용량
+    private int entryCount;//캐쉬속 데이터 현재 갯수
 
     private MemoryCache(String diskName){
         this.diskName = diskName;
-        inputNum = instanceCount;
-        entry = new HashMap<>();
-        cacheInstance.put(instanceCount,this);
         instanceCount++;
-        queue.add(inputNum);
-        log = new HashMap<Integer,String>();
         entryCount = 0;
+        MaxEntryNum = Integer.MAX_VALUE;
+
     }
 
-    public MemoryCache getInstance(String hardDiskName){
+    public static MemoryCache getInstance(String hardDiskName){
+
+        for(int i = 0; i < caches.size(); i++) {
+            if(caches.get(i).diskName.equals(hardDiskName)) {
+                /*
+                MemoryCache tem = caches.get(i);
+                caches.remove(i);
+                caches.add(tem);
+                usingLog.add(hardDiskName);
+                */
+                MemoryCache.useCache(caches.get(i));
+                return caches.get(i);
+            }
+        }
+
         if(instanceCount < maxInstanceNum){
             MemoryCache tem = new MemoryCache(hardDiskName);
-            cacheInstance.put(instanceCount,tem);
+            caches.add(tem);
+            usingLog.add(hardDiskName);
             return tem;
         }
 
         else{
             deleteOneCache();
             MemoryCache tem = new MemoryCache(hardDiskName);
-            instanceCount++;
-            cacheInstance.put(instanceCount,tem);
+            caches.add(tem);
+            usingLog.add(hardDiskName);
             return tem;
         }
     }
 
-    public void deleteOneCache(){
+    public static void deleteOneCache(){
+        if(caches.size() == 0) {
+            return;
+        }
+
         if(mode == EvictionPolicy.FIRST_IN_FIRST_OUT){
-            for (int i = 0; i < cacheInstance.size(); i++ ) {
-                cacheInstance.put(i,cacheInstance.get(i+1));
-            }
-            cacheInstance.put(instanceCount-1,null);
-            instanceCount--;
-            queue.remove(queue.indexOf(0));
-            for (int i = 0; i < queue.size(); i++ ) {
-                int tem = queue.get(i);
-                queue.add(i,tem-1);
-            }
-        }
-        else if(mode == EvictionPolicy.LAST_IN_FIRST_OUT){
-            instanceCount--;
-            cacheInstance.remove(instanceCount);
-            queue.remove(queue.indexOf(instanceCount));
-        }
-        else {
-            int tem = queue.get(0);
-            queue.remove(0);
-            for(int i = 0; i < queue.size(); i++){
-                if(queue.get(i) > tem ){
-                    queue.set(i, queue.get(i)-1);
+            for(int i  =0; i < usingLog.size(); i++) {
+                if(usingLog.get(i).equals(caches.get(0).diskName)) {
+                    usingLog.remove(i);
+                    break;
                 }
             }
-            cacheInstance.remove(tem);
+            caches.remove(0);
+            instanceCount--;
+        }
+        else if(mode == EvictionPolicy.LAST_IN_FIRST_OUT){
+            for(int i  =0; i < usingLog.size(); i++) {
+                if(usingLog.get(i).equals(caches.get(0).diskName)) {
+                    usingLog.remove(i);
+                    break;
+                }
+            }
+            caches.remove(caches.size()-1);
+            instanceCount--;
+        }
+        else {
+            for (int i = 0; i < caches.size(); i++) {
+                if (usingLog.get(0).equals(caches.get(i).diskName)) {
+                    caches.remove(i);
+                    break;
+                }
+            }
+            usingLog.remove(0);
             instanceCount--;
         }
     }
 
-
-    public void useCache(MemoryCache instance){
-        int tem = 0;
-        for(int i = 0;i<cacheInstance.size();i++)
-        {
-            if(cacheInstance.get(i) == instance){
-                tem = i;
+    public static void useCache(MemoryCache instance){
+        for(int i = 0 ; i < usingLog.size(); i++) {
+            if(usingLog.get(i).equals(instance.diskName)) {
+                usingLog.remove(i);
+                break;
             }
         }
-        int check = queue.indexOf(tem);
-        queue.remove(check);
-        queue.add(tem);
-
+        usingLog.add(instance.diskName);
     }
 
     public String getDiskName(){
@@ -95,33 +110,61 @@ public class MemoryCache {
     }
 
     static public void  clear(){
-        for(int i = 0;i< cacheInstance.size();i++){
-            cacheInstance.get(i).entry.clear();
-            cacheInstance.get(i).mqueue.clear();
-        }
-        cacheInstance.clear();
+        caches.clear();
+        usingLog.clear();
         instanceCount = 0;
     }
 
-    public void  setMaxInstanceCount(int num){
+    public static void setMaxInstanceCount(int num){
         maxInstanceNum = num;
         while(true){
-         if(instanceCount<=maxInstanceNum)
-             break;
+            if(instanceCount <= num) {
+                break;
+            }
+            deleteOneCache();
         }
-        deleteOneCache();
+        return;
     }
 
-
-    public void deleteCcachEntry(){
+    public void deleteCachEntry(){
+        if(entry.size() == 0) {
+            return;
+        }
         if(mode == EvictionPolicy.FIRST_IN_FIRST_OUT){
-
+            entry.remove(entryOrder.get(0));
+            for(int i = 0 ; i < usingEntryLog.size(); i++)
+            {
+                if(usingEntryLog.get(i).equals(entryOrder.get(0))) {
+                    usingEntryLog.remove(i);
+                    break;
+                }
+            };
+            entryOrder.remove(0);
+            entryCount--;
         }
         else if(mode == EvictionPolicy.LAST_IN_FIRST_OUT){
-
+            entry.remove(entryOrder.get(entryOrder.size() - 1));
+            for(int i = 0 ; i < usingEntryLog.size(); i++)
+            {
+                if(usingEntryLog.get(i).equals(entryOrder.get(entryOrder.size() - 1))) {
+                    usingEntryLog.remove(i);
+                    break;
+                }
+            };
+            entryOrder.remove(entryOrder.size() - 1);
+            entryCount--;
         }
         else {
-
+            entry.remove(usingEntryLog.get(0));
+            for(int i = 0 ; i < entryOrder.size(); i++)
+            {
+                if(entryOrder.get(i).equals(usingEntryLog.get(0))) {
+                    entryOrder.remove(i);
+                    break;
+                }
+            }
+            usingEntryLog.remove(0);
+            entryCount--;
         }
     }
 
@@ -130,22 +173,44 @@ public class MemoryCache {
     }
 
     public void addEntry(String key,String value){
-        if(entry.containsKey(key))
-        {
-            entry.put(key,value);
-        }
-        else{
-            if(entryCount == MaxEntryNum){
-                deleteCcachEntry();
+        if (entry.containsKey(key)) {
+            for(int i = 0; i < usingEntryLog.size(); i++) {
+                if(usingEntryLog.get(i).equals(key)) {
+                    usingEntryLog.remove(i);
+                    break;
+                }
             }
+            usingEntryLog.add(key);
             entry.put(key, value);
+
+        }
+
+        if(entryCount < MaxEntryNum) {
+            entryOrder.add(key);
+            entry.put(key, value);
+            usingEntryLog.add(key);
+            entryCount++;
+        }
+        else {
+            deleteCachEntry();
+            entry.put(key, value);
+            usingEntryLog.add(key);
+            entryOrder.add(key);
+            entryCount++;
         }
 
     }
 
     public String getEntryOrNull(String key){
         if(entry.containsKey(key)){
-            return key;
+            for(int i = 0; i < usingEntryLog.size(); i++) {
+                if(usingEntryLog.get(i).equals(key)) {
+                    usingEntryLog.remove(i);
+                    break;
+                }
+            }
+            usingEntryLog.add(key);
+            return entry.get(key);
         }
         else{
             return null;
@@ -153,9 +218,12 @@ public class MemoryCache {
     }
 
     public void setMaxEntryCount(int num){
-        maxInstanceNum = num;
+        MaxEntryNum = num;
+        while(true) {
+            if(entryCount <= num) {
+                break;
+            }
+            deleteCachEntry();
+        }
     }
-
-
-
 }
