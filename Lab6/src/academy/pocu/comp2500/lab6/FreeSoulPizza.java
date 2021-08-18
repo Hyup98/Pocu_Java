@@ -1,38 +1,21 @@
 package academy.pocu.comp2500.lab6;
 
+public class FreeSoulPizza extends Pizza {
 
-import java.util.ArrayList;
-
-public class FreeSoulPizza {
-    private static final int PRICE = 25;
-    private static final int MAX_MEAT_COUNT = 2;
-    private static final int MAX_VEGGIE_COUNT = 2;
-
-    private int price = PRICE;
-    private ArrayList<Topping> toppings = new ArrayList<>();
-
-    private int veggieCount;
-    private int meatCount;
-    private boolean isCheeseAdded;
-
-    public int getPrice() {
-        return this.price;
-    }
-
-    public boolean isValid() {
-        return this.meatCount == MAX_MEAT_COUNT
-                && this.veggieCount == MAX_VEGGIE_COUNT
-                && this.isCheeseAdded;
-    }
-
-    public ArrayList<Topping> getToppings() {
-        return this.toppings;
+    public FreeSoulPizza() {
+        super(25);
     }
 
     public boolean addTopping(Topping topping) {
+        this.isValid = false;
+
         if ((isMeat(topping) && this.meatCount >= MAX_MEAT_COUNT)
                 || (isVeggie(topping) && this.veggieCount >= MAX_VEGGIE_COUNT)
-                || (isCheese(topping) && this.isCheeseAdded)) {
+                || (isCheese(topping) && this.cheeseCount >= 1)) {
+            return false;
+        }
+
+        if (isValid()) {
             return false;
         }
 
@@ -47,7 +30,13 @@ public class FreeSoulPizza {
         }
 
         if (isCheese(topping)) {
-            this.isCheeseAdded = true;
+            ++this.cheeseCount;
+        }
+
+        if (this.meatCount == MAX_MEAT_COUNT
+                && this.veggieCount == MAX_VEGGIE_COUNT
+                && this.cheeseCount == 1) {
+            this.isValid = true;
         }
 
         return true;
@@ -66,7 +55,7 @@ public class FreeSoulPizza {
             }
 
             if (isCheese(topping)) {
-                this.isCheeseAdded = false;
+                --this.cheeseCount;
             }
         }
 
