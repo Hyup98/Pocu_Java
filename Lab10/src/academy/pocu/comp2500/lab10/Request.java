@@ -3,20 +3,27 @@ package academy.pocu.comp2500.lab10;
 import academy.pocu.comp2500.lab10.pocuflix.ResultBase;
 import academy.pocu.comp2500.lab10.pocuflix.User;
 
-public class Request implements IRequestHandler{
-    private String movieName;
-    private String userName;
+import java.util.Objects;
 
-    public Request(String name) {
-        this.movieName = name;
+public class Request implements IRequestHandler {
+    private String movieTitle;
+    private User user;
+
+    public Request(String movieTitle) {
+        this.movieTitle = movieTitle;
     }
 
-    public void setUser(String name) {
-        this.movieName = name;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || !(o instanceof Request)) return false;
+        Request request = (Request) o;
+        return Objects.equals(movieTitle, request.movieTitle) && Objects.equals(user, request.user);
     }
 
-    public void setUser(User user) {
-        this.userName = user.getUsername();
+    @Override
+    public int hashCode() {
+        return Objects.hash(movieTitle, user);
     }
 
     @Override
@@ -25,9 +32,22 @@ public class Request implements IRequestHandler{
     }
 
     public String getMovieName() {
-        return movieName;
+        return movieTitle;
     }
+
     public String getUserName() {
-        return userName;
+        return user.getUsername();
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(String movieTitle) {
+        this.movieTitle = movieTitle;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
