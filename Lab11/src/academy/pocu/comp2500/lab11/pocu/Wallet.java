@@ -29,7 +29,7 @@ public class Wallet {
         return this.amount;
     }
 
-    public boolean deposit(final int amount) {
+    public boolean deposit(final int amount) throws IllegalAccessException {
         if (amount <= 0) {
             return false;
         }
